@@ -42,14 +42,14 @@ const Hero = ({
               </h1>
               <p className="text-black-500 mt-4 mb-6">
                 Aggregate and manage all your social media feeds in one place.
-	  	Stay connected, engaged, an up-to-date with your friends, followers,
-	  	and favorite content across Facebook, LinkedIn, Twitter, Instagram,
-	  	and TikTok. Customize your feed, interact seamlessly, and discover
-	  	new experiences
-              /p>
-	      <Link href="/signup">
+	  	          Stay connected, engaged, an up-to-date with your friends, followers,
+	  	          and favorite content across Facebook, LinkedIn, Twitter, Instagram,
+	  	          and TikTok. Customize your feed, interact seamlessly, and discover
+	  	          new experiences
+              </p>
+	            <Link href="/signup">
                 <ButtonPrimary>Get Started</ButtonPrimary>
-	      </Link>
+	            </Link>
             </div>
             <div className="flex w-full">
               <motion.div className="h-full w-full" variants={scrollAnimation}>
