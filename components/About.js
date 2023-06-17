@@ -7,8 +7,9 @@ import ButtonOutline from "./misc/ButtonOutline.";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
+import Link from "next/link"
 
-const Pricing = () => {
+const About = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
 
   return (
@@ -205,7 +206,9 @@ const Pricing = () => {
                   </h5>
                   <p>Join us today and explore our exciting features</p>
                 </div>
-                <ButtonPrimary>Get Started</ButtonPrimary>
+                <Link href="/signup">
+                  <ButtonPrimary>Get Started</ButtonPrimary>
+                </Link>
               </div>
               <div
                 className="absolute bg-black-600 opacity-5 w-11/12 roudned-lg h-60 sm:h-56 top-0 mt-8 mx-auto left-0 right-0"
@@ -219,4 +222,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
+export default About;

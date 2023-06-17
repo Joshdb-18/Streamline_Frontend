@@ -39,7 +39,7 @@ const Feature = () => {
             Streamline Provides Some Cool Features
           </h3>
           <p className="my-2 text-black-500">
-            Here are some of our many cool features:
+            Here are some of our many cool features that can be explored:
           </p>
           <ul className="text-black-500 self-start list-inside ml-8">
             {features.map((feature, index) => (
