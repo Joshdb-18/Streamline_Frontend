@@ -49,24 +49,24 @@ const About = () => {
                     src="/assets/Free.png"
                     width={145}
                     height={165}
-                    alt="Streamline Free Plan"
+                    alt="Streamline Facebook img"
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Exciting Features
+                  Facebook Features
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                    Feature 1
+                  Social Media Sharing
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 2
+                  Facebook Login Integration
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 3
+                  Facebook Page Integration
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 4
+                  Facebook Messenger Integration
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
@@ -95,27 +95,27 @@ const About = () => {
                     src="/assets/Standard.png"
                     width={145}
                     height={165}
-                    alt="Streamline Standard Plan"
+                    alt="Streamline Twitter Img"
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Exciting Features
+                  Twitter Features
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                    Feature 1
+                  Trending Topics Discovery
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 2
+                  Social Media Monitoring
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 3
+                  Advanced Analytics
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 4
+                  Scheduled Tweets
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 5
+                  Social Listening
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
@@ -148,23 +148,23 @@ const About = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Exciting Features
+                  Tiktok and Instagram Features
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                    Feature 1
+                  TikTok Integration
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 2
+                  Instagram Scheduler
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 3
+                  TikTok Trends Discovery
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 4
+                  Influencer Collaboration
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 5
+                  Analytics Dashboard
                   </li>
                   <li className="relative check custom-list my-2">
                     And much more...
