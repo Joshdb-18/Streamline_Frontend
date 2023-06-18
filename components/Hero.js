@@ -30,7 +30,7 @@ const Hero = ({
   return (
     <div
       className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto"
-      id="about"
+      id="home"
     >
       <ScrollAnimationWrapper>
           <motion.div
@@ -81,7 +81,7 @@ const Hero = ({
                 </div>
                 <div className="flex flex-col">
                   <p className="text-xl text-black-600 font-bold">
-                    {listUsers.number}+
+                    {listUsers.number}
                   </p>
                   <p className="text-lg text-black-500">{listUsers.name}</p>
                 </div>

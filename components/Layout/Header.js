@@ -37,7 +37,7 @@ const Header = () => {
               }}
               className={
                 "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "about"
+                (activeLink === "home"
                   ? " text-orange-500 animation-active "
                   : " text-black-500 hover:text-orange-500 a")
               }
@@ -73,7 +73,7 @@ const Header = () => {
               }}
               className={
                 "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                (activeLink === "pricing"
+                (activeLink === "about"
                   ? " text-orange-500 animation-active "
                   : " text-black-500 hover:text-orange-500 ")
               }
@@ -100,7 +100,7 @@ const Header = () => {
             </LinkScroll>
           </ul>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <Link legacyBehavior href="/">
+            <Link legacyBehavior href="/signin">
               <a className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all">
                   Sign In
               </a>
@@ -127,7 +127,7 @@ const Header = () => {
               }}
               className={
                 "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
-                (activeLink === "about"
+                (activeLink === "home"
                   ? "  border-orange-500 text-orange-500"
                   : " border-transparent")
               }
@@ -143,7 +143,7 @@ const Header = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  d="M20 13V20H16V14H8V20H4V13L12 6L20 13Z"
                 />
               </svg>
               Home
@@ -191,7 +191,7 @@ const Header = () => {
               }}
               className={
                 "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
-                (activeLink === "pricing"
+                (activeLink === "about"
                   ? "  border-orange-500 text-orange-500"
                   : " border-transparent ")
               }
@@ -207,7 +207,7 @@ const Header = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
               About
