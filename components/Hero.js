@@ -16,12 +16,12 @@ const Hero = ({
     {
       name: "Platforms",
       number: "4",
-      icon: "/assets/Icon/gridicons_location.svg",
+      icon: "/assets/Icon/platforms.svg",
     },
     {
       name: "Website",
       number: "1",
-      icon: "/assets/Icon/bx_bxs-server.svg",
+      icon: "/assets/Icon/bx_bxs-website.svg",
     },
   ],
 }) => {
@@ -42,7 +42,7 @@ const Hero = ({
               </h1>
               <p className="text-black-500 mt-4 mb-6">
                 Aggregate and manage all your social media feeds in one place.
-	  	          Stay connected, engaged, an up-to-date with your friends, followers,
+	  	          Stay connected, engaged, and up-to-date with your friends, followers,
 	  	          and favorite content across Facebook, LinkedIn, Twitter, Instagram,
 	  	          and TikTok. Customize your feed, interact seamlessly, and discover
 	  	          new experiences
@@ -72,7 +72,7 @@ const Hero = ({
             <motion.div
               className="flex items-center justify-start sm:justify-center py-4 sm:py-6 w-8/12 px-4 sm:w-auto mx-auto sm:mx-0"
               key={index}
-              custom={{duration: 2 + index}}
+              custom={{duration: 1 + index}}
               variants={scrollAnimation}
             >
               <div className="flex mx-auto w-40 sm:w-auto">

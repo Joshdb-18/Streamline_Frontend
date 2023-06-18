@@ -3,7 +3,6 @@ import Image from "next/image";
 import Testimoni from "./Testimoni";
 import ButtonPrimary from "./misc/ButtonPrimary";
 import ButtonOutline from "./misc/ButtonOutline.";
-// import Maps from "../public/assets/HugeGlobal.svg";
 import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
@@ -72,9 +71,11 @@ const About = () => {
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4">
-                    Select
+                    Try it out!
                   </p>
-                  <ButtonOutline>Select</ButtonOutline>
+                  <Link href="/signup">
+                    <ButtonOutline>Explore</ButtonOutline>
+                  </Link>
                 </div>
               </motion.div>
             </ScrollAnimationWrapper>
@@ -119,9 +120,11 @@ const About = () => {
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4">
-                    Select
+                    Try it out!
                   </p>
-                  <ButtonOutline>Select</ButtonOutline>
+                  <Link href="/signup">
+                    <ButtonOutline>Explore</ButtonOutline>
+                  </Link>
                 </div>
               </motion.div>
             </ScrollAnimationWrapper>
@@ -164,14 +167,16 @@ const About = () => {
                     Feature 5
                   </li>
                   <li className="relative check custom-list my-2">
-                    Feature 6
+                    And much more...
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4">
-                    Select
+                    Try it out!
                   </p>
-                  <ButtonOutline>Select</ButtonOutline>
+                  <Link href="/signup">
+                    <ButtonOutline>Explore</ButtonOutline>
+                  </Link>
                 </div>
               </motion.div>
             </ScrollAnimationWrapper>

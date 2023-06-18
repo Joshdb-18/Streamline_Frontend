@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import Link from 'next/link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -17,8 +17,13 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="/">
+      <Link legacyBehavior href="/">
+      <a style={{
+        color: '#F53838',
+        textDecoration: 'none',
+      }}>
         Streamline
+      </a>
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -97,13 +102,23 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
+                <Link legacyBehavior href="#" variant="body2">
+                  <a style={{
+                    color: '#F53838',
+                    textDecoration: 'none',
+                  }}>
+                    Forgot password?
+                  </a>
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
+              <Link legacyBehavior href="/signup" variant="body2">
+                  <a style={{
+                    color: '#F53838',
+                    textDecoration: 'none',
+                    }}>
+                    Don't have an account?
+                  </a>
                 </Link>
               </Grid>
             </Grid>
