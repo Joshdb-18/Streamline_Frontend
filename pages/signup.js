@@ -18,7 +18,7 @@ function Copyright(props) {
       {'Copyright © '}
       <Link legacyBehavior href="/">
       <a style={{
-        color: '#F53838',
+        color: '#1976D2',
         textDecoration: 'none',
       }}>
         Streamline
@@ -113,7 +113,7 @@ export default function SignUp() {
               <Grid item>
                 <Link legacyBehavior href="/signin" variant="body2">
                   <a style={{
-                    color: '#F53838',
+                    color: '#1976D2',
                     textDecoration: 'none',
                     }}>
                   Already have an account? Sign in

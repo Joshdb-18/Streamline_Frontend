@@ -19,7 +19,7 @@ function Copyright(props) {
       {'Copyright © '}
       <Link legacyBehavior href="/">
       <a style={{
-        color: '#F53838',
+        color: '#1976D2',
         textDecoration: 'none',
       }}>
         Streamline
@@ -83,7 +83,7 @@ export default function SignIn() {
               autoComplete="current-password"
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" color="primary" style={{ color: '#F53838' }} />}
               label="Remember me"
             />
             <Button
@@ -104,7 +104,7 @@ export default function SignIn() {
               <Grid item xs>
                 <Link legacyBehavior href="#" variant="body2">
                   <a style={{
-                    color: '#F53838',
+                    color: '#1976D2',
                     textDecoration: 'none',
                   }}>
                     Forgot password?
@@ -114,7 +114,7 @@ export default function SignIn() {
               <Grid item>
               <Link legacyBehavior href="/signup" variant="body2">
                   <a style={{
-                    color: '#F53838',
+                    color: '#1976D2',
                     textDecoration: 'none',
                     }}>
                     Don't have an account?
