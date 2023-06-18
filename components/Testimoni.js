@@ -10,40 +10,40 @@ import ArrowNext from "../public/assets/Icon/eva_arrow-next-fill.svg";
 const Testimoni = ({
   listTestimoni = [
     {
-      name: "iezh Robert",
+      name: "John Smith",
       image: "/assets/people-3.png",
-      city: "Warsaw",
-      country: "Poland",
+      city: "New York ",
+      country: "USA",
       rating: "4.5",
       testimoni:
-        "Wow... I am very happy to use this, it turned out to be much more than my expectations and so far there have been no problems. Streamline always the best",
+        "Streamline has helped me boost my productivity to new heights. The seamless integration and extensive functionality have made my work life so much easier. I can't imagine working without it!",
     },
     {
-      name: "iezh Robert",
+      name: "David Martinez",
       image: "/assets/people-3.png",
-      city: "Warsaw",
-      country: "Poland",
+      city: "San Francisco ",
+      country: "USA",
       rating: "4.5",
       testimoni:
-        "Wow... I am very happy to use this, it turned out to be more than my expectations and so far there have been no problems. Streamline always the best",
+        "Streamline has completely transformed the way I work. The features and efficiency it offers are unparalleled. Highly recommended!",
     },
     {
-      name: "iezh Robert",
+      name: "Emily Johnson",
       image: "/assets/people-3.png",
-      city: "Warsaw",
-      country: "Poland",
+      city: "London ",
+      country: "England",
       rating: "4.5",
       testimoni:
-        "Wow... I am very happy to use this, it turned out to be more than my expectations and so far there have been no problems. Streamline always the best",
+        "I've been using Streamline for a few months now, and I'm amazed at how it has streamlined my workflow. The intuitive interface and powerful features make it a game-changer for any professional.",
     },
     {
-      name: "iezh Robert",
+      name: "Sarah Thompson",
       image: "/assets/people-3.png",
-      city: "Warsaw",
-      country: "Poland",
+      city: "Sydney ",
+      country: "Australia",
       rating: "4.5",
       testimoni:
-        "Wow... I am very happy to use this, it turned out to be more than my expectations and so far there have been no problems. Streamline always the best",
+        "I've tried several productivity tools, but Streamline is by far the best. It's user-friendly, visually appealing, and has all the features I need to stay organized and efficient. It's a game-changer for both personal and professional use",
     },
   ],
 }) => {
