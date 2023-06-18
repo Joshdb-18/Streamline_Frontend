@@ -11,7 +11,7 @@ const Testimoni = ({
   listTestimoni = [
     {
       name: "John Smith",
-      image: "/assets/people-3.png",
+      image: "/assets/people-1.png",
       city: "New York ",
       country: "USA",
       rating: "4.5",
@@ -29,7 +29,7 @@ const Testimoni = ({
     },
     {
       name: "Emily Johnson",
-      image: "/assets/people-3.png",
+      image: "/assets/people-2.png",
       city: "London ",
       country: "England",
       rating: "4.5",
@@ -38,7 +38,7 @@ const Testimoni = ({
     },
     {
       name: "Sarah Thompson",
-      image: "/assets/people-3.png",
+      image: "/assets/people-2.png",
       city: "Sydney ",
       country: "Australia",
       rating: "4.5",
