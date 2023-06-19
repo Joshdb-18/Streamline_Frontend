@@ -60,13 +60,13 @@ const About = () => {
                   Social Media Sharing
                   </li>
                   <li className="relative check custom-list my-2">
-                  Facebook Login Integration
+                  Login Integration
                   </li>
                   <li className="relative check custom-list my-2">
-                  Facebook Page Integration
+                  Page Integration
                   </li>
                   <li className="relative check custom-list my-2">
-                  Facebook Messenger Integration
+                  Messenger Integration
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
@@ -103,10 +103,10 @@ const About = () => {
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                  Trending Topics Discovery
+                  Trending Topics
                   </li>
                   <li className="relative check custom-list my-2">
-                  Social Media Monitoring
+                  Real Time Monitoring
                   </li>
                   <li className="relative check custom-list my-2">
                   Advanced Analytics
@@ -148,17 +148,17 @@ const About = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Tiktok and Instagram Features
+                  Tiktok Features
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
                   TikTok Integration
                   </li>
                   <li className="relative check custom-list my-2">
-                  Instagram Scheduler
+                  Tiktok Scheduler
                   </li>
                   <li className="relative check custom-list my-2">
-                  TikTok Trends Discovery
+                  Trends Discovery
                   </li>
                   <li className="relative check custom-list my-2">
                   Influencer Collaboration
