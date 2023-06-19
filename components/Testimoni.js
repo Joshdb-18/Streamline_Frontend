@@ -29,7 +29,7 @@ const Testimoni = ({
     },
     {
       name: "Emily Johnson",
-      image: "/assets/people-2.png",
+      image: "/assets/woman-1.jpg",
       city: "London ",
       country: "England",
       rating: "4.5",
