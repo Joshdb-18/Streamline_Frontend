@@ -46,7 +46,7 @@ const About = () => {
               >
                 <div className="p-4 lg:p-0 mt-6 lg:mt-16">
                   <Image
-                    src="/assets/Free.png"
+                    src="/assets/Facebook.png"
                     width={145}
                     height={165}
                     alt="Streamline Facebook img"
@@ -92,7 +92,7 @@ const About = () => {
               >
                 <div className="p-4 lg:p-0 mt-6 lg:mt-16">
                   <Image
-                    src="/assets/Standard.png"
+                    src="/assets/Twitter.png"
                     width={145}
                     height={165}
                     alt="Streamline Twitter Img"
@@ -141,7 +141,7 @@ const About = () => {
               >
                 <div className="p-4 lg:p-0 mt-6 lg:mt-16">
                   <Image
-                    src="/assets/Premium.png"
+                    src="/assets/Tiktok.png"
                     width={145}
                     height={165}
                     alt="Streamline Premium Plan"
