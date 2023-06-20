@@ -1,10 +1,10 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-import Link from 'next/link'
+import Link from 'next/link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -12,35 +12,47 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link legacyBehavior href="/">
-      <a style={{
-        color: '#1976D2',
-        textDecoration: 'none',
-      }}>
-        Streamline
-      </a>
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-const defaultTheme = createTheme();
-
-export default function SignUp() {
-  const handleSubmit = (event) => {
+function Signup() {
+  const router = useRouter();
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    try {
+      const response = await fetch('http://127.0.0.1/api/v1/register/', {
+        method: 'POST',
+        body: JSON.stringify({
+          username: data.get('userName'),
+          email: data.get('email'),
+          password: data.get('password'),
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const responseData = await response.json();
+
+      if (response.ok) {
+        // Successful signup
+        console.log(responseData.message);
+        // Redirect the user to the confirm email page
+        router.push('/confirm-email');
+      } else {
+        // Error occurred during signup
+        console.error(responseData.error);
+      }
+    } catch (error) {
+      // Handle network or other errors
+      console.error(error);
+    }
   };
+
+  const defaultTheme = createTheme();
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -99,13 +111,14 @@ export default function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3,
-                    mb: 2,
-                    bgcolor: '#F53838',
-                    '&:hover': {
-                      bgcolor: '#F53833',
-                    },
-                  }}
+              sx={{
+                mt: 3,
+                mb: 2,
+                bgcolor: '#F53838',
+                '&:hover': {
+                  bgcolor: '#F53833',
+                },
+              }}
             >
               Sign Up
             </Button>
@@ -115,16 +128,17 @@ export default function SignUp() {
                   <a style={{
                     color: '#1976D2',
                     textDecoration: 'none',
-                    }}>
-                  Already have an account? Sign in
+                  }}>
+                    Already have an account? Sign in
                   </a>
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
 }
+
+export default Signup; 
