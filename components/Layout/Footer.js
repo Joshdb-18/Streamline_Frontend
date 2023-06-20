@@ -5,6 +5,7 @@ import Facebook from "../../public/assets/Icon/facebook.svg";
 import Twitter from "../../public/assets/Icon/twitter.svg";
 import Instagram from "../../public/assets/Icon/instagram.svg";
 import LinkedIn from "../../public/assets/Icon/linkedin.svg";
+import GitHub from "../../public/assets/Icon/github.svg"
 
 const Footer = () => {
   return (
@@ -35,6 +36,11 @@ const Footer = () => {
             <Link href="https://www.linkedin.com/in/tpkjosh" target="_blank">
               <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
                 <LinkedIn className="h-6 w-6" />
+              </div>
+            </Link>
+            <Link href="https://www.github.com/Joshdb-18" target="_blank">
+              <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
+                <GitHub className="h-6 w-6" />
               </div>
             </Link>
           </div>
