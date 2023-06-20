@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link"
 import Streamline from "../../public/assets/Logo.svg";
 import Facebook from "../../public/assets/Icon/facebook.svg";
 import Twitter from "../../public/assets/Icon/twitter.svg";
@@ -14,15 +15,21 @@ const Footer = () => {
             platform that unifies your social accounts in one single place.
           </p>
           <div className="flex w-full mt-2 mb-8 -mx-2">
-            <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
-              <Facebook className="h-6 w-6" />
-            </div>
-            <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
-              <Twitter className="h-6 w-6" />
-            </div>
-            <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
-              <Instagram className="h-6 w-6" />
-            </div>
+            <Link href="https://www.facebook.com/profile.php?id=100081522244592" target="_blank">
+              <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
+                <Facebook className="h-6 w-6" />
+              </div>
+            </Link>
+            <Link href="https://www.twitter.com/TPKjosh" target="_blank">
+              <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
+                <Twitter className="h-6 w-6" />
+              </div>
+            </Link>
+            <Link href="https://www.instagram.com/tpkjosh" target="_blank">
+              <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
+                <Instagram className="h-6 w-6" />
+              </div>
+            </Link>
           </div>
           <p className="text-gray-400">©{new Date().getFullYear()} - Streamline</p>
         </div>
