@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         password,
       });
 
-      // Handle the response from your backend API
+      // Handles the response from the backend API
       console.log(response.data);
 
       // Return a response indicating success
