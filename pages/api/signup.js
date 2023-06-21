@@ -4,9 +4,9 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const { username, email, password } = req.body;
-      
+
       // Make a POST request to the backend signup endpoint
-      const response = await axios.post('http://127.0.0.1:8080/api/v1/register/', {
+      const response = await axios.post('https://backend.devnetwork.tech/api/v1/register/', {
         username,
         email,
         password,
