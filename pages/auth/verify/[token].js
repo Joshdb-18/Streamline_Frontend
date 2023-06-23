@@ -23,8 +23,6 @@ export default function VerifyEmail() {
           // Verification is successful
           // Display a success message
           console.log('Email verification successful');
-          // Redirect the user to the login page or a dashboard
-          router.push('/login');
         } else {
           // Verification failed
           // Display an error message
@@ -57,7 +55,7 @@ export default function VerifyEmail() {
           </div>
         ) : (
           <p className="text-lg mb-6">
-            Your email has been verified. You can now proceed to login.
+            Your email has been verified. You can now proceed to <a href="/signin">Login</a>
           </p>
         )}
       </div>
