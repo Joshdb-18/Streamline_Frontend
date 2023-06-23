@@ -10,6 +10,10 @@ export default async function handler(req, res) {
         username,
         email,
         password,
+      }, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
       });
 
       // Handles the response from the backend API
