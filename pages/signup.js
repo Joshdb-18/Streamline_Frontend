@@ -47,7 +47,7 @@ function Signup() {
       } else {
         // Error occurred during signup
         console.error(responseData.error);
-        setError(responseData.error);
+        setError(responseData.error + 'Try again with a different username');
       }
     } catch (error) {
       // Handle network or other errors
