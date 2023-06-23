@@ -16,8 +16,7 @@
     "framer-motion": "6.0.0",
     "postcss-import": "^13.0.0",
     "slick-carousel": "^1.8.1",
-    "tailwindcss": "^3.3.2",
-    "react-loader-spinner": "^5.3.4"
+    "tailwindcss": "^3.3.2"
   },
   "devDependencies": {
     "@emotion/react": "^11.11.1",
