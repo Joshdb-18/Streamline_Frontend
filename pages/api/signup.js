@@ -27,7 +27,7 @@ export default async function handler(req, res) {
       console.error(error);
 
       // Return a response indicating an error
-      return res.status(500).json({ error: 'An error occurred during signup' });
+      return res.status(500).json({ error: 'An error occurred during signup: ' + error.message});
     }
   }
 
