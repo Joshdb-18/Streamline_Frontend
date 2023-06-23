@@ -14,6 +14,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Signup() {
   const router = useRouter();
+  const [error, setError] = React.useState(null);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -26,7 +28,7 @@ function Signup() {
       const response = await fetch('https://backend.devnetwork.tech/api/v1/register/', {
         method: 'POST',
         body: JSON.stringify({
-          username: data.get('userName'),
+          username: data.get('username'),
           email: data.get('email'),
           password: data.get('password'),
         }),
@@ -45,10 +47,12 @@ function Signup() {
       } else {
         // Error occurred during signup
         console.error(responseData.error);
+        setError(responseData.error);
       }
     } catch (error) {
       // Handle network or other errors
       console.error(error);
+      setError('An error occurred during signup: ' + error.message);
     }
   };
 
@@ -77,7 +81,7 @@ function Signup() {
               <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
-                  name="userName"
+                  name="username"
                   required
                   fullWidth
                   id="userName"
@@ -107,6 +111,11 @@ function Signup() {
                 />
               </Grid>
             </Grid>
+            {error && (
+              <Typography color="error" align="center" sx={{ mt: 2 }}>
+                {error}
+              </Typography>
+            )}
             <Button
               type="submit"
               fullWidth
