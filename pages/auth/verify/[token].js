@@ -1,7 +1,7 @@
+import * as React from 'react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 export default function VerifyEmail() {
@@ -36,10 +36,12 @@ export default function VerifyEmail() {
           console.error('An error occurred during email verification', error);
           // You can choose to redirect the user to an error page or display an error message on the verification page
         } finally {
-          // Set loading to false after verification is complete
-          setLoading(false);
-        }
-      };
+            // Wait for 5 seconds before setting loading to false
+            setTimeout(() => {
+              setLoading(false);
+            }, 5000);
+          }
+        };
   
       if (token) {
         verifyEmail();
@@ -52,7 +54,9 @@ export default function VerifyEmail() {
           <div className="max-w-md px-4 py-8 bg-white shadow-lg rounded-md">
             <h2 className="text-2xl font-bold mb-4">Email Verification</h2>
             <div className="flex items-center justify-center mb-6">
-              <CircularProgress color="primary" size={40} />
+                <Box sx={{ display: 'flex' }}>
+                    <CircularProgress />
+                </Box>
               <p className="text-lg ml-3">Verifying your email address...</p>
             </div>
           </div>
