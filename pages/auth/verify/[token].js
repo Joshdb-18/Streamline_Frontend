@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Loader from 'react-loader-spinner';
+import { Loader } from 'react-loader-spinner';
 
 export default function VerifyEmail() {
   const router = useRouter();
