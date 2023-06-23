@@ -25,7 +25,7 @@ function Signup() {
     });
 
     try {
-      const response = await fetch('https://backend.devnetwork.tech/api/v1/register/', {
+      const response = await fetch('api/signup', {
         method: 'POST',
         body: JSON.stringify({
           username: data.get('username'),
