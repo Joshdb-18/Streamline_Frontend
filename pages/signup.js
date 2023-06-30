@@ -12,9 +12,45 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link legacyBehavior href="/">
+      <a style={{
+        color: '#1976D2',
+        textDecoration: 'none',
+      }}>
+        Streamline
+      </a>
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+function ErrorMessage({ error }) {
+  return (
+    <Typography variant="body2" color="error" align="center" gutterBottom>
+      {error}
+    </Typography>
+  );
+}
+
+function SuccessMessage({ message }) {
+  return (
+    <Typography variant="body2" color="success" align="center" gutterBottom>
+      {message}
+    </Typography>
+  );
+}
+
+
 function Signup() {
   const router = useRouter();
   const [error, setError] = React.useState(null);
+  const [message, setMessage] = React.useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,6 +78,7 @@ function Signup() {
       if (response.ok) {
         // Successful signup
         console.log(responseData.message);
+        setMessage(responseData.message);
         // Redirect the user to the confirm email page
         router.push('/confirm-email');
       } else {
@@ -76,6 +113,8 @@ function Signup() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
+          {error && <ErrorMessage error={error} />}
+          {message && <SuccessMessage message={message} />}
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
@@ -125,7 +164,7 @@ function Signup() {
                 mb: 2,
                 bgcolor: '#F53838',
                 '&:hover': {
-                  bgcolor: '#F53833',
+                  bgcolor: '#e53030',
                 },
               }}
             >
@@ -145,6 +184,7 @@ function Signup() {
             </Grid>
           </Box>
         </Box>
+        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );

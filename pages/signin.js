@@ -33,14 +33,63 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
+function ErrorMessage({ error }) {
+  return (
+    <Typography variant="body2" color="error" align="center" gutterBottom>
+      {error}
+    </Typography>
+  );
+}
+
+function SuccessMessage({ message }) {
+  return (
+    <Typography variant="body2" color="success" align="center" gutterBottom>
+      {message}
+    </Typography>
+  );
+}
+
 export default function SignIn() {
-  const handleSubmit = (event) => {
+  const [error, setError] = React.useState(null);
+  const [message, setMessage] = React.useState(null);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
+    try {
+      const response = await fetch('api/signin', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: data.get('email'),
+          password: data.get('password'),
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const responseData = await response.json();
+
+      if (response.ok) {
+        // Successful signup
+        console.log(responseData.message);
+        setMessage(responseData.message);
+        // Redirect the user to the confirm email page
+        router.push('/');
+      } else {
+        // Error occurred during signup
+        console.error(responseData.error);
+        setError(responseData.error);
+      }
+    } catch (error) {
+      // Handle network or other errors
+      console.error(error);
+      setError('An error occurred during signup: ' + error.message);
+    }
   };
 
   return (
@@ -61,6 +110,8 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+          {error && <ErrorMessage error={error} />}
+          {message && <SuccessMessage message={message} />}
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
@@ -94,7 +145,7 @@ export default function SignIn() {
                     mb: 2,
                     bgcolor: '#F53838',
                     '&:hover': {
-                      bgcolor: '#F53838',
+                      bgcolor: '#e53030',
                   },
                  }}
             >
