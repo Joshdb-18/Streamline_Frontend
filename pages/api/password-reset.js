@@ -20,19 +20,7 @@ export default async function handler(req, res) {
       const responseData = response.data;
 
       if (responseData.success) {
-        const { uidb64, token: passwordToken } = responseData;
-        // Set cookies with a 15-minute expiration
-        const expirationMinutes = 15;
-        const expirationInDays = expirationMinutes / (24 * 60); // Convert minutes to days
-        const expirationFraction = 1 / expirationInDays;
-
-        Cookies.set('uidb64', uidb64, { expires: expirationFraction });
-        Cookies.set('passwordToken', passwordToken, { expires: expirationFraction });
-        
         // Return a response indicating success
-        const header = Cookies.get('uidb64');
-        const token = Cookies.get('passwordToken');
-        console.log(header, token)
         return res.status(200).json({ success: true });
       } else {
         // Return a response indicating an error

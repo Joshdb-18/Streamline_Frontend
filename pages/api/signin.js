@@ -1,5 +1,5 @@
-import cookie from 'cookie';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         const { token } = responseData;
 
         // Set the token as a cookie
-        res.setHeader('Set-Cookie', cookie.serialize('token', token));
+        Cookies.set('token', token, { expires: 7 });
 
         // Return a response indicating success
         return res.status(200).json({ success: true });
