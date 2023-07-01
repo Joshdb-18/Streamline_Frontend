@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import Link from 'next/link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import HowToRegOutlined  from '@mui/icons-material/HowToRegOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -108,7 +108,7 @@ function Signup() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: '#F53833' }}>
-            <LockOutlinedIcon />
+            <HowToRegOutlined />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up

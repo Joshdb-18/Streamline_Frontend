@@ -1,3 +1,4 @@
+import cookie from 'cookie';
 import axios from 'axios';
 
 export default async function handler(req, res) {
@@ -10,22 +11,32 @@ export default async function handler(req, res) {
         email,
         password,
       }, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
 
       // Handles the response from the backend API
-      console.log(response.data);
+      const responseData = response.data;
 
-      // Return a response indicating success
-      return res.status(200).json({ success: true });
+      if (responseData.success) {
+        const { token } = responseData;
+
+        // Set the token as a cookie
+        res.setHeader('Set-Cookie', cookie.serialize('token', token));
+
+        // Return a response indicating success
+        return res.status(200).json({ success: true });
+      } else {
+        // Return a response indicating an error
+        return res.status(500).json({ error: responseData.message });
+      }
     } catch (error) {
       // Handle errors that occur during the signup process
       console.error(error);
 
       // Return a response indicating an error
-      return res.status(500).json({ error: 'Invalid credentials'});
+      return res.status(500).json({ error: 'Invalid credentials' });
     }
   }
 

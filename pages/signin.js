@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,7 +9,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Link from 'next/link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined'
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -50,6 +51,7 @@ function SuccessMessage({ message }) {
 }
 
 export default function SignIn() {
+  const router = useRouter();
   const [error, setError] = React.useState(null);
   const [message, setMessage] = React.useState(null);
 
@@ -77,9 +79,9 @@ export default function SignIn() {
       if (response.ok) {
         // Successful signup
         console.log(responseData.message);
-        setMessage(responseData.message);
-        // Redirect the user to the confirm email page
-        router.push('/');
+
+        // Redirect the user to the main page
+        router.push('/main');
       } else {
         // Error occurred during signup
         console.error(responseData.error);
@@ -88,7 +90,7 @@ export default function SignIn() {
     } catch (error) {
       // Handle network or other errors
       console.error(error);
-      setError('An error occurred during signup: ' + error.message);
+      setError('An error occurred during signin: ' + error.message);
     }
   };
 
@@ -105,7 +107,7 @@ export default function SignIn() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: '#F53833' }}>
-            <LockOutlinedIcon />
+            <LoginOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
@@ -153,7 +155,7 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link legacyBehavior href="#" variant="body2">
+                <Link legacyBehavior href="/password-reset" variant="body2">
                   <a style={{
                     color: '#1976D2',
                     textDecoration: 'none',
