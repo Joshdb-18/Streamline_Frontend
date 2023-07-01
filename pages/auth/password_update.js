@@ -12,13 +12,11 @@ import Cookies from 'js-cookie';
 
 export default function PasswordUpdate() {
   const router = useRouter();
-  // const uidb64 = router.query.uidb64;
-  // const token = router.query.token;
+  const uidb64 = router.query.uidb64;
+  const token = router.query.token;
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const uidb64 = Cookies.get('uidb64');
-  const token = Cookies.get('passwordToken');
   console.log('uidb64:', uidb64);
   console.log('token:', token);
 
@@ -53,8 +51,6 @@ export default function PasswordUpdate() {
         console.log('Password update verification successful');
 
         // Delete uidb64 and passwordToken cookies
-        Cookies.remove('uidb64');
-        Cookies.remove('passwordToken');
         router.push('/success/password-reset-success')
 
       } else {
