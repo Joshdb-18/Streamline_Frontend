@@ -26,6 +26,8 @@ export default function PasswordUpdate() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  console.log(uidb64Value);
+  console.log(tokenValue);
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
