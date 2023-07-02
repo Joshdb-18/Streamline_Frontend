@@ -10,7 +10,7 @@ export default async function handler(req, res) {
         email,
       }, {
         headers: {
-          'Content-Type': 'applicatsion/json',
+          'Content-Type': 'application/json',
           'X-Requested-From': 'www.app.devnetwork.tech',
         },
       });
