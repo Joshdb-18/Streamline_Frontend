@@ -26,8 +26,6 @@ export default function PasswordUpdate() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  console.log(uidb64Value);
-  console.log(tokenValue);
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -43,6 +41,9 @@ export default function PasswordUpdate() {
     if (password !== confirmPassword) {
       setError("Passwords don't match");
       return;
+    }
+    else if (!uidb64Value || !tokenValue || uidb64Value === 'undefined' || tokenValue === 'undefined' || uidb64Value === '' || tokenValue === '') {
+      router.push('/error/password-reset-error');
     }
 
     try {
@@ -61,7 +62,7 @@ export default function PasswordUpdate() {
         router.push('/success/password-reset-success');
       } else {
         // Password update verification failed
-        router.push('/error/password-reset-error');
+        setError('Password update verification failed');
       }
     } catch (error) {
       // Handle any network or other errors that occur during password update verification
