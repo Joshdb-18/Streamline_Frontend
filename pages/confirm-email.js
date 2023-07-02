@@ -51,7 +51,7 @@ const ThankYouPage = () => {
         </Button>
         <Typography variant="body2" sx={{ marginTop: '20px' }}>
           Having trouble?{' '}
-          <Link href="#" color="primary" underline="always">
+          <Link href="new_email/new-email" color="primary" underline="always">
             Request for a new email
           </Link>
         </Typography>
