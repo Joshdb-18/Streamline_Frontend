@@ -46,7 +46,7 @@ export default function PasswordUpdate() {
     }
 
     try {
-      const response = await fetch('/api/password-update', {
+      const response = await fetch('api/password-update', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
