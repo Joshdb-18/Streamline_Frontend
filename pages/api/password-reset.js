@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -11,8 +10,8 @@ export default async function handler(req, res) {
         email,
       }, {
         headers: {
-          'Content-Type': 'application/json',
-          'X-Requested-From': 'joshdb-18-obscure-space-chainsaw-pqjqrjg9vwpf76q7-3001.preview.app.github.dev',
+          'Content-Type': 'applicatsion/json',
+          'X-Requested-From': 'www.app.devnetwork.tech',
         },
       });
 

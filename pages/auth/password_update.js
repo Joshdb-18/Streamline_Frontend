@@ -8,17 +8,21 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import KeyOutlinedIcon from '@mui/icons-material/KeyOutlined';
 import Typography from '@mui/material/Typography';
-import Cookies from 'js-cookie';
+
 
 export default function PasswordUpdate() {
   const router = useRouter();
-  const uidb64 = router.query.uidb64;
-  const token = router.query.token;
+  useEffect(() => {
+    // Get the query parameters from the URL
+    const queryParams = new URLSearchParams(router.asPath.split('?')[1]);
+    const uidb64 = queryParams.get('uidb64');
+    const token = queryParams.get('token');
+    console.log('Uidb64: ', uidb64);
+    console.log('Token: ', token);
+  });
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  console.log('uidb64:', uidb64);
-  console.log('token:', token);
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
