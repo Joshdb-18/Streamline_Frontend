@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import HowToRegOutlined  from '@mui/icons-material/HowToRegOutlined';
 
 
-export default function ForgotPassword() {
+export default function NewEmail() {
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
@@ -34,7 +34,7 @@ export default function ForgotPassword() {
       }
   
       // Send the password reset request to the backend
-      const resetPassword = async () => {
+      const newLink = async () => {
         try {
           const response = await fetch('api/new-email', {
             method: 'POST',
@@ -53,15 +53,15 @@ export default function ForgotPassword() {
             router.push('/reset-email'); 
           } else {
             // Password reset request failed
-            setError('Password reset request failed. Please try again later.');
+            setError('Request failed: ', response.error);
           }
         } catch (error) {
-          console.error('An error occurred during password reset request', error);
+          console.error('An error occurred during new link request', error);
           setError('An error occurred. Please try again later.');
         }
       };
   
-      resetPassword();
+      newLink();
     };
   
     return (
@@ -79,7 +79,7 @@ export default function ForgotPassword() {
         <HowToRegOutlined />
         </Avatar>
           <Typography variant="h5" component="h1" mb={2}>
-            Request for a new Email verification link
+            New Email verification link
           </Typography>
           <form onSubmit={handleSubmit}>
             <TextField
