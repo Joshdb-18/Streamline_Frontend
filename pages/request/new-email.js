@@ -53,7 +53,8 @@ export default function NewEmail() {
             router.push('email/reset-email'); 
           } else {
             // Password reset request failed
-            setError(response);
+            console.log(response.error)
+            setError(response.error);
           }
         } catch (error) {
           console.error('An error occurred during new link request', error);
