@@ -50,7 +50,7 @@ export default function NewEmail() {
   
           if (response.ok) {
             // Password reset request sent successfully
-            router.push('email/reset-email'); 
+            router.push('../email/reset-email'); 
           } else {
             // Password reset request failed
             console.log(response.error)
