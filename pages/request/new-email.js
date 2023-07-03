@@ -50,10 +50,10 @@ export default function NewEmail() {
   
           if (response.ok) {
             // Password reset request sent successfully
-            router.push('/reset-email'); 
+            router.push('email/reset-email'); 
           } else {
             // Password reset request failed
-            setError('Request failed: ', response.error);
+            setError(response);
           }
         } catch (error) {
           console.error('An error occurred during new link request', error);
