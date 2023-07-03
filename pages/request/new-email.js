@@ -36,7 +36,7 @@ export default function NewEmail() {
       // Send the password reset request to the backend
       const newLink = async () => {
         try {
-          const response = await fetch('api/new-email', {
+          const response = await fetch('../api/new-email', {
             method: 'POST',
             body: JSON.stringify({
               email: email,

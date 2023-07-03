@@ -11,7 +11,7 @@ export default function PasswordResetError() {
   useEffect(() => {
     const redirectTimer = setTimeout(() => {
       router.push('/signin');
-    }, 1000); // 1000 milliseconds = 1 second
+    }, 3000); // 1000 milliseconds = 1 second
 
     // Clean up the timer on component unmount
     return () => clearTimeout(redirectTimer);
