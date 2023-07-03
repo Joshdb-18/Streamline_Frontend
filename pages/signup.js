@@ -80,7 +80,7 @@ function Signup() {
         console.log(responseData.message);
         setMessage(responseData.message);
         // Redirect the user to the confirm email page
-        router.push('/confirm-email');
+        router.push('email/confirm-email');
       } else {
         // Error occurred during signup
         console.error(responseData.error);

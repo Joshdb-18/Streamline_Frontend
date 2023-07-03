@@ -50,7 +50,7 @@ export default function ForgotPassword() {
   
           if (response.ok) {
             // Password reset request sent successfully
-            router.push('/reset-email'); 
+            router.push('email/reset-email'); 
           } else {
             // Password reset request failed
             setError('Password reset request failed. Please try again later.');

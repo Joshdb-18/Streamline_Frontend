@@ -34,24 +34,26 @@ const ThankYouPage = () => {
         <Typography variant="body1" gutterBottom>
           Can't find the email? Check your spam folder or click the link below to request a new email.
         </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          sx={{
-            marginTop: '30px',
-            bgcolor: '#F53838', // Red Color
-            color: '#fff', // White Text Color
-            '&:hover': {
-              bgcolor: '#e53030', // Slightly darker shade on hover
-            },
-          }}
-        >
-          Open email app
-        </Button>
+        <Link href="https://mail.google.com">
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            sx={{
+              marginTop: '30px',
+              bgcolor: '#F53838', // Red Color
+              color: '#fff', // White Text Color
+              '&:hover': {
+                bgcolor: '#e53030', // Slightly darker shade on hover
+              },
+            }}
+          >
+            Open email app
+          </Button>
+        </Link>
         <Typography variant="body2" sx={{ marginTop: '20px' }}>
           Having trouble?{' '}
-          <Link href="new_email/new-email" color="primary" underline="always">
+          <Link href="request/new-email" color="primary" underline="always">
             Request for a new email
           </Link>
         </Typography>

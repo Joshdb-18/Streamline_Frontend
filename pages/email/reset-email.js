@@ -32,21 +32,23 @@ const ResetPage = () => {
         <Typography variant="body1" gutterBottom>
           Can't find the email? Check your spam folder or click the link below to request for a new one.
         </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          sx={{
-            marginTop: '30px',
-            bgcolor: '#F53838', // Red Color
-            color: '#fff', // White Text Color
-            '&:hover': {
-              bgcolor: '#e53030', // Slightly darker shade on hover
-            },
-          }}
-        >
-          Open email app
-        </Button>
+        <Link href="https://mail.google.com">
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            sx={{
+              marginTop: '30px',
+              bgcolor: '#F53838', // Red Color
+              color: '#fff', // White Text Color
+              '&:hover': {
+                bgcolor: '#e53030', // Slightly darker shade on hover
+              },
+            }}
+          >
+            Open email app
+          </Button>
+        </Link>
         <Typography variant="body2" sx={{ marginTop: '20px' }}>
           Having trouble?{' '}
           <Link href="/password-reset" color="primary" underline="always">
