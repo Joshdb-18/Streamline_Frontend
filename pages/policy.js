@@ -112,7 +112,7 @@ export default function PrivacyPolicy() {
             .
           </ListItem>
           <ListItem>
-            <strong>You</strong> means theindividual accessing or using the Service, or the company or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
+            <strong>You</strong> means thei ndividual accessing or using the Service, or the company or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
           </ListItem>
         </List>
         <Heading>Collecting and Using Your Personal Data</Heading>
@@ -150,8 +150,8 @@ export default function PrivacyPolicy() {
           <ListItem>Google</ListItem>
           <ListItem>Facebook</ListItem>
           <ListItem>Instagram</ListItem>
-          <ListItem>Twitter</ListItem>
-          <ListItem>LinkedIn</ListItem>
+          <ListItem>YouTube</ListItem>
+          <ListItem>TikTok and so on...</ListItem>
         </List>
         <Paragraph>
           If You decide to register through or otherwise grant us access to a Third-Party Social Media Service, We may collect
