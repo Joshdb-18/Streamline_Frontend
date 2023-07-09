@@ -57,12 +57,16 @@ const Footer = () => {
         <div className="row-span-2 sm:col-span-2 sm:col-start-9 sm:col-end-11 flex flex-col">
           <p className="text-black-600 mb-4 font-medium text-lg">Engage</p>
           <ul className="text-black-500">
+	  <Link href="/terms-of-service">
             <li className="my-2 hover:text-orange-500 cursor-pointer transition-all">
-              FAQ{" "}
+              Terms of Service{" "}
             </li>
+	  </Link>
+	  <Link href="/policy">
             <li className="my-2 hover:text-orange-500 cursor-pointer transition-all">
-              About Us{" "}
+              Privacy Policy{" "}
             </li>
+	  </Link>
           </ul>
         </div>
       </div>
