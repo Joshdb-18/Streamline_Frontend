@@ -15,6 +15,29 @@ import Container from "@mui/material/Container";
 import validator from "validator";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+function Copyright(props) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link legacyBehavior href="/">
+      <a style={{
+        color: '#1976D2',
+        textDecoration: 'none',
+      }}>
+        Streamline
+      </a>
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
 function ErrorMessage({ error }) {
   return (
     <Typography variant="body2" color="error" align="center" gutterBottom>
@@ -250,6 +273,7 @@ function Signup() {
             </Grid>
           </Box>
         </Box>
+        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
