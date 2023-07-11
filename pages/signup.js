@@ -4,6 +4,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 import Link from 'next/link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -148,6 +150,12 @@ function Signup() {
                   id="password"
                   autoComplete="new-password"
                 />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                control={<Checkbox value="acceptTerms" color="primary" style={{ color: '#F53838' }} />}
+                label="By clicking the signup button, you agree that you have read and accepted our terms of service and our privacy policy"
+              />
               </Grid>
             </Grid>
             {error && (
