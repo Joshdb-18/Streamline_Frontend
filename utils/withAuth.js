@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { parseCookies } from 'nookies';
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { parseCookies } from "nookies";
 
 const withAuth = (WrappedComponent) => {
   const AuthenticatedComponent = (props) => {
@@ -13,10 +13,16 @@ const withAuth = (WrappedComponent) => {
 
       if (!isAuthenticated) {
         // User is not authenticated, redirect to the login page
-        router.push('/signin');
+        router.push("/signin");
       }
-    }, []);
+    }, []); // Add an empty dependency array to ensure this effect runs only on the initial server-side render
 
+    // Return null to prevent rendering the component on the server-side
+    if (typeof window === "undefined") {
+      return null;
+    }
+
+    // Return the wrapped component for client-side rendering
     return <WrappedComponent {...props} />;
   };
 
