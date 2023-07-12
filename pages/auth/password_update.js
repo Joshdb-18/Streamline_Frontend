@@ -13,6 +13,8 @@ export default function PasswordUpdate() {
   const router = useRouter();
   const [uidb64, setUidb64] = useState('');
   const [token, setToken] = useState('');
+  const [uidb64Value, setUidb64Value] = useState('');
+  const [tokenValue, setTokenValue] = useState('');
 
   useEffect(() => {
     // Get the query parameters from the URL
@@ -21,6 +23,8 @@ export default function PasswordUpdate() {
     const tokenValue = queryParams.get('token');
     setUidb64(uidb64Value);
     setToken(tokenValue);
+    setUidb64Value(uidb64Value);
+    setTokenValue(tokenValue);
   }, []);
 
   const [password, setPassword] = useState('');
