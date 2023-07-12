@@ -31,23 +31,24 @@ export default async function handler(req, res) {
         setCookie(null, "token", token, {
           maxAge: 60 * 60 * 24 * 7, // Cookie expiration time in seconds (e.g., 7 days)
           path: "/", // Cookie path (root path)
-          secure: process.env.NODE_ENV === "production", // Set to true in production, false in development
-          sameSite: "lax", // Adjust this based on your requirements
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "lax",
         });
-        // Cookies.set('token', token, { expires: 7 });
 
         // Return a response indicating success
         return res.status(200).json({ success: true });
       } else {
         // Return a response indicating an error
-        return res.status(500).json({ error: responseData.message });
+        return res
+          .status(response.status)
+          .json({ error: responseData.message });
       }
     } catch (error) {
       // Handle errors that occur during the signup process
       console.error(error);
 
       // Return a response indicating an error
-      return res.status(500).json({ error: "Invalid credentials" });
+      return res.status(500).json({ error: "An error occured, try later" });
     }
   }
 

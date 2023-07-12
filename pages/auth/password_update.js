@@ -53,7 +53,7 @@ export default function PasswordUpdate() {
       uidb64Value === "" ||
       tokenValue === ""
     ) {
-      router.push("/error/password-reset-error");
+      router.push("../error/password-reset-error");
     }
 
     try {
@@ -69,7 +69,7 @@ export default function PasswordUpdate() {
           password2: confirmPassword,
         }),
       });
-
+      const data = await response.json();
       if (response.ok) {
         // Password update verification is successful
         // Display a success message or redirect to the password update page
@@ -77,10 +77,11 @@ export default function PasswordUpdate() {
         router.push("/success/password-reset-success");
       } else {
         // Password update verification failed
-        setError("Password update verification failed");
+        setError(data.error);
       }
     } catch (error) {
       // Handle any network or other errors that occur during password update verification
+      setError("This link has expired, request for a new one.");
       console.error(
         "An error occurred during password update verification",
         error
