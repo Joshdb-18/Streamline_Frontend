@@ -26,7 +26,6 @@ export default function YoutubeCallbackPage() {
             router.push("../aggregator/youtube");
           } else {
             console.error("Failed to process YouTube callback");
-            console.log("SBA");
           }
         } catch (error) {
           console.error("Error:", error);

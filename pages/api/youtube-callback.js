@@ -15,10 +15,16 @@ export default async function handler(req, res) {
         }
       );
 
-      console.log(response.data);
-      res.status(200).json({ success: true });
+      // Check the response status
+      if (response.status === 200) {
+        res.status(200).json({ success: true });
+      } else {
+        res
+          .status(response.status)
+          .json({ error: "Failed to process YouTube callback" });
+      }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error.response);
       res.status(500).json({ error: error.message });
     }
   } else {
