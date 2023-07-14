@@ -25,7 +25,7 @@ export default function YoutubeCallbackPage() {
           if (response.ok) {
             router.push("../aggregator/youtube");
           } else {
-            console.error("Failed to process YouTube callback");
+            console.error("Could not process YouTube callback");
           }
         } catch (error) {
           console.error("Error:", error);
