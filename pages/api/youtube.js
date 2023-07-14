@@ -1,7 +1,8 @@
 import axios from "axios";
 
+
 export default async function handler(req, res) {
-  const token = localStorage.getItem("token");
+  const token = 
 
   // Create the Authorization header
   const headers = {
