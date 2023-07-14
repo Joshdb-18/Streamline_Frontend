@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import axios from "axios";
 
 export default function YoutubeCallbackPage() {
   const router = useRouter();
@@ -9,24 +8,32 @@ export default function YoutubeCallbackPage() {
     const token = localStorage.getItem("token");
     const { state } = router.query;
 
-    if (state) {
-      // Make a request to the API route
-      axios
-        .post("../api/youtube-callback", {
-          token,
-          state,
-        })
-        .then((response) => {
-          if (response.data.success) {
+    const fetchData = async () => {
+      if (state) {
+        try {
+          const response = await fetch("../api/youtube-callback", {
+            method: "POST",
+            body: JSON.stringify({
+              state,
+              token,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          const responseData = await response.json();
+          if (response.ok) {
             router.push("../aggregator/youtube");
           } else {
             console.error("Failed to process YouTube callback");
           }
-        })
-        .catch((error) => {
+        } catch (error) {
           console.error("Error:", error);
-        });
-    }
+        }
+      }
+    };
+
+    fetchData();
   }, [router.query]);
 
   return (
