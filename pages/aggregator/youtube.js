@@ -1,15 +1,24 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import withAuth from '../../utils/withAuth';
+import withAuth from "../../utils/withAuth";
 
 function YoutubePage() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
     // Fetch the YouTube videos from the API
     const fetchVideos = async () => {
       try {
-        const response = await axios.get("../api/youtube");
+        const response = await fetch("../api/youtube", {
+          method: "POST",
+          body: JSON.stringify({
+            token,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const fetchedVideos = response.data;
         setVideos(fetchedVideos);
       } catch (error) {
