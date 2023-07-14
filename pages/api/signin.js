@@ -1,6 +1,4 @@
 import axios from "axios";
-import { setCookie } from "cookie";
-// import Cookies from 'js-cookie';
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -27,16 +25,8 @@ export default async function handler(req, res) {
       if (responseData.success) {
         const { token } = responseData;
 
-        // Set the token as a cookie
-        setCookie(null, "token", token, {
-          maxAge: 60 * 60 * 24 * 7, // Cookie expiration time in seconds (e.g., 7 days)
-          path: "/", // Cookie path (root path)
-          secure: process.env.NODE_ENV === "production",
-          sameSite: "lax",
-        });
-
-        // Return a response indicating success
-        return res.status(200).json({ success: true });
+        // Return the token to the client environment
+        return res.status(response.status).json({ token: token });
       } else {
         // Return a response indicating an error
         return res
@@ -48,7 +38,7 @@ export default async function handler(req, res) {
       console.error(error);
 
       // Return a response indicating an error
-      return res.status(500).json({ error: "An error occured, try later" });
+      return res.status(500).json({ error: error.message });
     }
   }
 

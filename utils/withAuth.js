@@ -1,32 +1,27 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { parseCookies } from "nookies";
-
+// utils/withAuth.js
 const withAuth = (WrappedComponent) => {
-  const AuthenticatedComponent = (props) => {
-    const router = useRouter();
+  const getServerSideProps = async () => {
+    // Get the token from localStorage
+    const token = localStorage.getItem("token");
 
-    useEffect(() => {
-      // Check if the user is authenticated
-      const cookies = parseCookies();
-      const isAuthenticated = cookies.token ? true : false;
-
-      if (!isAuthenticated) {
-        // User is not authenticated, redirect to the login page
-        router.push("/signin");
-      }
-    }, []); // Add an empty dependency array to ensure this effect runs only on the initial server-side render
-
-    // Return null to prevent rendering the component on the server-side
-    if (typeof window === "undefined") {
-      return null;
+    // If the token is not present, redirect to the signin page
+    if (!token) {
+      return {
+        redirect: {
+          to: "/signin",
+        },
+      };
     }
 
-    // Return the wrapped component for client-side rendering
-    return <WrappedComponent {...props} />;
+    // Return the token
+    return {
+      props: {
+        token: token,
+      },
+    };
   };
 
-  return AuthenticatedComponent;
+  return WrappedComponent;
 };
 
 export default withAuth;

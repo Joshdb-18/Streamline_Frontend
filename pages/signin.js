@@ -71,6 +71,7 @@ export default function SignIn() {
       email: data.get("email"),
       password: data.get("password"),
     });
+
     try {
       const response = await fetch("api/signin", {
         method: "POST",
@@ -88,12 +89,15 @@ export default function SignIn() {
       if (response.ok) {
         // Successful signup
         console.log(responseData.message);
-
+        const token = responseData.token;
+        localStorage.setItem("token", token);
         // Redirect the user to the main page
         router.push("user/main");
+        // cookies.set("token", responseData.token);
       } else {
         // Error occurred during signup
         console.error(responseData.error);
+        console.log(responseData.error);
         setError(responseData.error);
       }
     } catch (error) {
