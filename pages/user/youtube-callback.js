@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function YoutubeCallbackPage() {
+  const token = localStorage.getItem("token");
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
     const { state } = router.query;
 
     const fetchData = async () => {
@@ -26,8 +27,7 @@ export default function YoutubeCallbackPage() {
             router.push("../aggregator/youtube");
           } else {
             console.error(responseData.error);
-            console.log(state);
-            console.log(token);
+            console.error(token);
           }
         } catch (error) {
           console.error("Error:", error);
