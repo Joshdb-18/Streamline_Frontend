@@ -7,7 +7,6 @@ export default function YoutubeCallbackPage() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-
     // Create the Authorization header
     const headers = {
       Authorization: `Token ${token}`,
