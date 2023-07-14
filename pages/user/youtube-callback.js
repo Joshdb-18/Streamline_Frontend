@@ -3,16 +3,15 @@ import { useRouter } from "next/router";
 import axios from "axios";
 
 export default function YoutubeCallbackPage() {
-  const token = localStorage.getItem("token");
-
-  // Create the Authorization header
-  const headers = {
-    Authorization: `Token ${token}`,
-  };
-
   const router = useRouter();
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    // Create the Authorization header
+    const headers = {
+      Authorization: `Token ${token}`,
+    };
     const { state } = router.query;
 
     if (state) {
