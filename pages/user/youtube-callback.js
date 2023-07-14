@@ -20,7 +20,9 @@ export default function YoutubeCallbackPage() {
       axios
         .get(
           `https://backend.devnetwork.tech/api/v1/youtube/callback?state=${state}`,
-          headers
+          {
+            headers: headers,
+          }
         )
         .then((response) => {
           console.log(response.data);
