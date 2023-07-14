@@ -1,32 +1,27 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import getToken from "../token";
 
 export default function YoutubeCallbackPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const token = getToken();
-    // Create the Authorization header
-    const headers = {
-      Authorization: `Token ${token}`,
-    };
-
+    const token = localStorage.getItem("token");
     const { state } = router.query;
 
     if (state) {
-      // Make a request to the backend callback URL
+      // Make a request to the API route
       axios
-        .get(
-          `https://backend.devnetwork.tech/api/v1/youtube/callback?state=${state}`,
-          {
-            headers: headers,
-          }
-        )
+        .post("../api/youtube-callback", {
+          token,
+          state,
+        })
         .then((response) => {
-          console.log(response.data);
-          router.push("../aggregator/youtube");
+          if (response.data.success) {
+            router.push("../aggregator/youtube");
+          } else {
+            console.error("Failed to process YouTube callback");
+          }
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -37,7 +32,7 @@ export default function YoutubeCallbackPage() {
   return (
     <div>
       <h1>YouTube Callback</h1>
-      <p>Please wait while we redirect you the the appropriate page</p>
+      <p>Please wait while we redirect you to the appropriate page</p>
     </div>
   );
 }

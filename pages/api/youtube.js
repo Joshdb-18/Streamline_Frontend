@@ -1,8 +1,8 @@
 import axios from "axios";
-import getToken from "../token";
+
 
 export default async function handler(req, res) {
-  const token = getToken();
+  const token = 
 
   // Create the Authorization header
   const headers = {
