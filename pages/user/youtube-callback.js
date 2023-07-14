@@ -26,8 +26,8 @@ export default function YoutubeCallbackPage() {
             router.push("../aggregator/youtube");
           } else {
             console.error(responseData.error);
-            console.error(state);
-            console.error(token);
+            console.log(state);
+            console.log(token);
           }
         } catch (error) {
           console.error("Error:", error);
