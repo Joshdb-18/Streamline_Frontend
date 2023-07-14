@@ -2,11 +2,10 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function YoutubeCallbackPage() {
-  const token = localStorage.getItem("token");
   const router = useRouter();
 
   useEffect(() => {
-    // const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     const { state } = router.query;
 
     const fetchData = async () => {
