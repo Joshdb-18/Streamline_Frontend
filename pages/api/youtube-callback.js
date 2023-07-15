@@ -1,13 +1,13 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
-  const { token, state } = req.body;
+  const { token, state, code } = req.body;
 
   if (state) {
     try {
       // Make a request to the backend callback URL
       const response = await axios.get(
-        `https://backend.devnetwork.tech/api/v1/youtube/callback?state=${state}`,
+        `https://backend.devnetwork.tech/api/v1/youtube/callback?state=${state}&code=${code}`,
         {
           headers: {
             Authorization: `Token ${token}`,

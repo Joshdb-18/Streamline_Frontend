@@ -6,7 +6,7 @@ export default function YoutubeCallbackPage() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const { state } = router.query;
+    const { state, code } = router.query;
 
     const fetchData = async () => {
       if (state) {
@@ -15,6 +15,7 @@ export default function YoutubeCallbackPage() {
             method: "POST",
             body: JSON.stringify({
               state,
+              code,
               token,
             }),
             headers: {
@@ -26,7 +27,6 @@ export default function YoutubeCallbackPage() {
             router.push("../aggregator/youtube");
           } else {
             console.error(responseData.error);
-            console.error(token);
           }
         } catch (error) {
           console.error("Error:", error);
