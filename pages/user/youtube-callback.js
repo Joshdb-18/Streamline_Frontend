@@ -24,7 +24,7 @@ export default function YoutubeCallbackPage() {
           });
           const responseData = await response.json();
           if (response.ok) {
-            router.push("../aggregator/youtube");
+            router.push("../sites/youtube");
           } else {
             console.error(responseData.error);
           }
