@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   try {
     // Make a GET request to the backend YouTube videos endpoint
     const response = await axios.get(
-      "https://backend.devnetwork.tech/api/v1/youtube-videos/",
+      "https://backend.devnetwork.tech/api/v1/youtube/uploaded-videos/",
       {
         headers: headers,
       }
