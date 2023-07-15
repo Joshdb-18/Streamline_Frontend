@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     );
 
     // Retrieve the videos from the response
-    const videos = response.data;
+    const { videos } = response.data;
 
     // Return the videos as the API response
     return res.status(200).json(videos);
