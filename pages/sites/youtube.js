@@ -7,6 +7,7 @@ function YoutubePage() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+
     // Fetch the YouTube videos from the API
     const fetchVideos = async () => {
       try {
@@ -19,7 +20,7 @@ function YoutubePage() {
             "Content-Type": "application/json",
           },
         });
-        const fetchedVideos = response.data;
+        const fetchedVideos = await response.json();
         setVideos(fetchedVideos);
       } catch (error) {
         console.error(
@@ -35,12 +36,16 @@ function YoutubePage() {
   return (
     <div>
       <h1>YouTube Videos</h1>
-      {videos.map((video) => (
-        <div key={video.id}>
-          <h3>{video.title}</h3>
-          <p>{video.description}</p>
-        </div>
-      ))}
+      {videos.length > 0 ? (
+        videos.map((video) => (
+          <div key={video.id}>
+            <h3>{video.title}</h3>
+            <p>{video.description}</p>
+          </div>
+        ))
+      ) : (
+        <p>Retrieving videos...</p>
+      )}
     </div>
   );
 }
