@@ -45,13 +45,13 @@ function YoutubeLikePage() {
           <div key={video.id}>
             <h3>{video.title}</h3>
             <p>Description: {video.description}</p>
-            <p>Likes: {video.likes}</p>
-            <p>Comments: {video.comments}</p>
-            <p>Views: {video.views}</p>
+            <p>Likes: {video.like_count}</p>
+            <p>Comments: {video.comment_count}</p>
+            <p>Views: {video.view_count}</p>
             <iframe
               width="560"
               height="315"
-              src={video.link}
+              src={`https://www.youtube.com/embed/${video.id}`}
               title="YouTube Video"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
