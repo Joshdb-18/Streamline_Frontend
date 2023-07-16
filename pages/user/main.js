@@ -63,7 +63,7 @@ const Dashboard = () => {
           >
             Connect YouTube
           </button>
-          <Link legacyBehavior href="/tiktok/tiktok.js">
+          <Link legacyBehavior href="/coming-soon">
             <a
               style={{
                 backgroundColor: "#FF2D55",
@@ -78,7 +78,7 @@ const Dashboard = () => {
               Connect TikTok
             </a>
           </Link>
-          <Link legacyBehavior href="/facebook/facebook.js">
+          <Link legacyBehavior href="/coming-soon">
             <a
               style={{
                 backgroundColor: "#4267B2",
@@ -93,7 +93,7 @@ const Dashboard = () => {
               Connect Facebook
             </a>
           </Link>
-          <Link legacyBehavior href="/instagram/instagram.js">
+          <Link legacyBehavior href="/coming-soon">
             <a
               style={{
                 backgroundColor: "#E4405F",
