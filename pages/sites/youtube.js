@@ -40,7 +40,19 @@ function YoutubePage() {
         videos.map((video) => (
           <div key={video.id}>
             <h3>{video.title}</h3>
-            <p>{video.description}</p>
+            <p>Description: {video.description}</p>
+            <p>Likes: {video.likes}</p>
+            <p>Comments: {video.comments}</p>
+            <p>Views: {video.views}</p>
+            <p>Privacy Status: {video.privacyStatus}</p>
+            <iframe
+              width="560"
+              height="315"
+              src={video.link}
+              title="YouTube Video"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         ))
       ) : (
