@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import withAuth from "../../utils/withAuth";
 
-function YoutubePage() {
+function YoutubeLikePage() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ function YoutubePage() {
     // Fetch the YouTube videos from the API
     const fetchVideos = async () => {
       try {
-        const response = await fetch("../api/youtube", {
+        const response = await fetch("../api/youtube-liked", {
           method: "POST",
           body: JSON.stringify({
             token,
@@ -28,7 +28,7 @@ function YoutubePage() {
         }
       } catch (error) {
         console.error(
-          "An error occurred while fetching YouTube videos:",
+          "An error occurred while fetching YouTube liked videos:",
           error
         );
       }
@@ -48,7 +48,6 @@ function YoutubePage() {
             <p>Likes: {video.likes}</p>
             <p>Comments: {video.comments}</p>
             <p>Views: {video.views}</p>
-            <p>Privacy Status: {video.privacyStatus}</p>
             <iframe
               width="560"
               height="315"
@@ -66,4 +65,4 @@ function YoutubePage() {
   );
 }
 
-export default withAuth(YoutubePage);
+export default withAuth(YoutubeLikePage);
