@@ -21,7 +21,11 @@ function YoutubePage() {
           },
         });
         const fetchedVideos = await response.json();
-        setVideos(fetchedVideos);
+        if (response.ok) {
+          setVideos(fetchedVideos);
+        } else {
+          console.log(fetchedVideos.error);
+        }
       } catch (error) {
         console.error(
           "An error occurred while fetching YouTube videos:",
