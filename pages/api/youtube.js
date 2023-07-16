@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     );
 
     // Retrieve the videos from the response
-    const { videos } = response.data;
+    const videos = response.data;
 
     // Return the videos as the API response
     return res.status(200).json(videos);
@@ -26,6 +26,6 @@ export default async function handler(req, res) {
     console.error("An error occurred while fetching YouTube videos:", error);
 
     // Return an error response
-    return res.status(500).json({ error: "Failed to fetch YouTube videos" });
+    return res.status(500).json({ error: error.message });
   }
 }
