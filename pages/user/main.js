@@ -7,15 +7,18 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import NavigationIcon from "@mui/icons-material/Navigation";
-// import Toolbar from "@mui/material/Toolbar";
+import Hidden from "@mui/material/Hidden";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-// import { Link as LinkScroll } from "react-scroll";
 import ButtonOutline from "../../components/misc/ButtonOutline.";
 import Streamline from "../../public/assets/Logo.svg";
 
 const Dashboard = () => {
   const [youtubeUrl, setYoutubeUrl] = useState("");
   const [youtubeConnected, setYoutubeConnected] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
 
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
@@ -71,44 +74,104 @@ const Dashboard = () => {
           </div>
         </nav>
       </header>
+      <Toolbar />
       <Box sx={{ "& > :not(style)": { m: 2 } }}>
-        <Button onClick={handleAddYouTube}>
-          <Fab variant="extended" size="medium" color="error" aria-label="add">
-            <NavigationIcon sx={{ mr: 1 }} />
-            Connect YouTube
-          </Fab>
-        </Button>
-        <Button href="/coming-soon">
-          <Fab variant="extended" size="medium" color="black" aria-label="add">
-            <NavigationIcon sx={{ mr: 1 }} />
-            Connect TikTok
-          </Fab>
-        </Button>
-        <Button href="/coming-soon">
-          <Fab
-            variant="extended"
-            size="medium"
-            color="primary"
-            aria-label="add"
+        <Hidden smUp implementation="css">
+          <IconButton
+            color="inherit"
+            aria-label="menu"
+            onClick={() => setShowButtons(!showButtons)}
           >
-            <NavigationIcon sx={{ mr: 1 }} />
-            Connect Facebook
-          </Fab>
-        </Button>
-        <Button href="/coming-soon">
-          <Fab
-            variant="extended"
-            size="medium"
-            color="secondary"
-            aria-label="add"
-          >
-            <NavigationIcon sx={{ mr: 1 }} />
-            Connect Instagram
-          </Fab>
-        </Button>
+            <MenuIcon />
+          </IconButton>
+        </Hidden>
+        <Hidden mdDown implementation="css">
+          <Button onClick={handleAddYouTube}>
+            <Fab
+              variant="extended"
+              size="medium"
+              color="error"
+              aria-label="add"
+            >
+              <NavigationIcon sx={{ mr: 1 }} />
+              Connect YouTube
+            </Fab>
+          </Button>
+          <Button href="/coming-soon">
+            <Fab variant="extended" size="medium" color="" aria-label="add">
+              <NavigationIcon sx={{ mr: 1 }} />
+              Connect TikTok
+            </Fab>
+          </Button>
+          <Button href="/coming-soon">
+            <Fab
+              variant="extended"
+              size="medium"
+              color="primary"
+              aria-label="add"
+            >
+              <NavigationIcon sx={{ mr: 1 }} />
+              Connect Facebook
+            </Fab>
+          </Button>
+          <Button href="/coming-soon">
+            <Fab
+              variant="extended"
+              size="medium"
+              color="secondary"
+              aria-label="add"
+            >
+              <NavigationIcon sx={{ mr: 1 }} />
+              Connect Instagram
+            </Fab>
+          </Button>
+        </Hidden>
+        {showButtons && (
+          <>
+            <Button onClick={handleAddYouTube}>
+              <Fab
+                variant="extended"
+                size="medium"
+                color="error"
+                aria-label="add"
+              >
+                <NavigationIcon sx={{ mr: 1 }} />
+                Connect YouTube
+              </Fab>
+            </Button>
+            <Button href="/coming-soon">
+              <Fab variant="extended" size="medium" color="" aria-label="add">
+                <NavigationIcon sx={{ mr: 1 }} />
+                Connect TikTok
+              </Fab>
+            </Button>
+            <Button href="/coming-soon">
+              <Fab
+                variant="extended"
+                size="medium"
+                color="primary"
+                aria-label="add"
+              >
+                <NavigationIcon sx={{ mr: 1 }} />
+                Connect Facebook
+              </Fab>
+            </Button>
+            <Button href="/coming-soon">
+              <Fab
+                variant="extended"
+                size="medium"
+                color="secondary"
+                aria-label="add"
+              >
+                <NavigationIcon sx={{ mr: 1 }} />
+                Connect Instagram
+              </Fab>
+            </Button>
+          </>
+        )}
       </Box>
-      <div
-        style={{
+      <Box
+        sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -118,54 +181,122 @@ const Dashboard = () => {
           fontSize: "1.2rem",
         }}
       >
-        <main
-          style={{
+        <Box
+          sx={{
             background: "#FFFFFF",
             padding: "2rem",
             borderRadius: "8px",
+            maxWidth: "800px",
+            width: "100%",
+            mb: "2rem",
           }}
         >
-          <h2>About Streamline</h2>
-          <p>
+          <Typography variant="h2" sx={{ mb: "1rem" }}>
+            About Streamline
+          </Typography>
+          <Typography variant="body1" sx={{ mb: "1rem" }}>
             Streamline is an all-in-one social media management platform
             designed to simplify your online presence. With Streamline, you can
             easily manage your social media accounts, analyze performance, and
             connect with your audience.
-          </p>
+          </Typography>
+        </Box>
 
-          <h3>Connect YouTube</h3>
-          <p>
-            By connecting your YouTube account, you can manage your channel,
-            upload videos, view analytics, and engage with your subscribers.
-            Streamline provides a seamless interface to streamline your YouTube
-            content creation and management process.
-          </p>
+        <Box
+          sx={{
+            background: "#FFFFFF",
+            padding: "2rem",
+            borderRadius: "8px",
+            maxWidth: "800px",
+            width: "100%",
+            mb: "2rem",
+          }}
+        >
+          <Typography variant="h2" sx={{ mb: "1rem" }}>
+            Blog Posts
+          </Typography>
+          <Typography variant="h3" sx={{ mb: "1rem" }}>
+            Introducing Streamline v2.0
+          </Typography>
+          <Typography variant="body1" sx={{ mb: "1rem" }}>
+            We are excited to announce the release of Streamline v2.0! This
+            major update brings new features, improved performance, and a
+            redesigned user interface. With Streamline v2.0, managing your
+            social media presence has never been easier.
+          </Typography>
 
-          <h3>Connect Facebook</h3>
-          <p>
-            Connect your Facebook account to manage your profile, post updates,
-            schedule content, and engage with your followers. Streamline
-            provides powerful tools to streamline your Facebook marketing
-            strategy and enhance your online presence.
-          </p>
+          <Typography variant="h3" sx={{ mb: "1rem" }}>
+            Tips for Growing Your Instagram Audience
+          </Typography>
+          <Typography variant="body1" sx={{ mb: "1rem" }}>
+            Looking to expand your Instagram audience? Check out our latest blog
+            post for valuable tips and strategies to help you grow your
+            followers and increase engagement on your Instagram profile. Don't
+            miss out on these actionable insights!
+          </Typography>
 
-          <h3>Connect Instagram</h3>
-          <p>
-            With Streamline, you can connect your Instagram account to manage
-            your posts, schedule content, monitor engagement, and gain insights
-            into your audience. Streamline's intuitive interface simplifies your
-            Instagram marketing efforts.
-          </p>
+          <Typography variant="h3" sx={{ mb: "1rem" }}>
+            How to Leverage Facebook Ads for Business Success
+          </Typography>
+          <Typography variant="body1" sx={{ mb: "1rem" }}>
+            Facebook ads can be a powerful tool for driving business success. In
+            our recent blog post, we dive into the best practices for creating
+            and optimizing Facebook ads to maximize your reach, drive
+            conversions, and achieve your business goals.
+          </Typography>
+        </Box>
 
-          <h3>Connect TikTok</h3>
-          <p>
-            Connect your TikTok account with Streamline to manage your videos,
-            engage with your followers, and monitor performance. Streamline
-            provides comprehensive TikTok management features to help you grow
-            your TikTok presence.
-          </p>
-        </main>
-      </div>
+        <Box
+          sx={{
+            background: "#FFFFFF",
+            padding: "2rem",
+            borderRadius: "8px",
+            maxWidth: "800px",
+            width: "100%",
+            mb: "2rem",
+          }}
+        >
+          <Typography variant="h2" sx={{ mb: "1rem" }}>
+            Testimonials
+          </Typography>
+          <Typography variant="h3" sx={{ mb: "1rem" }}>
+            "Streamline has transformed the way I manage my social media
+            accounts."
+          </Typography>
+          <Typography variant="body1" sx={{ mb: "1rem" }}>
+            - John Doe, Social Media Manager
+          </Typography>
+
+          <Typography variant="h3" sx={{ mb: "1rem" }}>
+            "The analytics and reporting features of Streamline have been
+            instrumental in improving our social media strategy."
+          </Typography>
+          <Typography variant="body1" sx={{ mb: "1rem" }}>
+            - Jane Smith, Marketing Director
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            background: "#FFFFFF",
+            padding: "2rem",
+            borderRadius: "8px",
+            maxWidth: "800px",
+            width: "100%",
+            mb: "2rem",
+          }}
+        >
+          <Typography variant="h2" sx={{ mb: "1rem" }}>
+            Contact Us
+          </Typography>
+          <Typography variant="body1" sx={{ mb: "1rem" }}>
+            Have questions or need assistance? Our support team is here to help!
+            Contact us at support@streamline.com or call 123-456-789 for
+            immediate assistance. We're available 24/7 to address your concerns
+            and ensure you have a seamless experience with Streamline.
+          </Typography>
+        </Box>
+      </Box>
     </>
   );
 };
