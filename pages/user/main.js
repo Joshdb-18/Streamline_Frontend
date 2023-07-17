@@ -7,10 +7,35 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import NavigationIcon from "@mui/icons-material/Navigation";
+// import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+// import { Link as LinkScroll } from "react-scroll";
+import ButtonOutline from "../../components/misc/ButtonOutline.";
+import Streamline from "../../public/assets/Logo.svg";
 
 const Dashboard = () => {
   const [youtubeUrl, setYoutubeUrl] = useState("");
   const [youtubeConnected, setYoutubeConnected] = useState(false);
+
+  const handleLogout = async () => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Token ${token}`,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://backend.devnetwork.tech/api/v1/logout/",
+        {
+          headers: headers,
+        }
+      );
+      localStorage.removeItem("token");
+      router.push("/");
+    } catch (error) {
+      console.error("An error occured", error);
+    }
+  };
 
   const handleAddYouTube = async () => {
     const token = localStorage.getItem("token");
@@ -34,12 +59,19 @@ const Dashboard = () => {
     }
   };
 
-  const handleYoutubeConnected = () => {
-    setYoutubeConnected(true);
-  };
   return (
     <>
-      <Box sx={{ "& > :not(style)": { m: 1 } }}>
+      <header>
+        <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
+          <div className="col-start-1 col-end-2 flex items-center">
+            <Streamline className="h-8 w-auto" />
+          </div>
+          <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
+            <ButtonOutline onClick={handleLogout}>Logout</ButtonOutline>
+          </div>
+        </nav>
+      </header>
+      <Box sx={{ "& > :not(style)": { m: 2 } }}>
         <Button onClick={handleAddYouTube}>
           <Fab variant="extended" size="medium" color="error" aria-label="add">
             <NavigationIcon sx={{ mr: 1 }} />
