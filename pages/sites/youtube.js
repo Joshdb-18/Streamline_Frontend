@@ -62,7 +62,9 @@ function Media(props) {
                 : `${video.description.slice(0, 100)}...`}
             </Typography>
             <button onClick={toggleDescription}>
-              {showDescription ? "Hide Description" : "Show Description"}
+              {showDescription
+                ? "Hide Description"
+                : "Show remaining Description"}
             </button>
             <Typography variant="body2">Likes: {video.like_count}</Typography>
             <Typography variant="body2">
