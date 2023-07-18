@@ -54,11 +54,9 @@ function Media(props) {
             <Typography variant="body1">
               Description: {video.description}
             </Typography>
-            <Typography variant="body2">Likes: {video.like_count}</Typography>
-            <Typography variant="body2">
-              Comments: {video.comment_count}
-            </Typography>
-            <Typography variant="body2">Views: {video.view_count}</Typography>
+            <Typography variant="body2">Likes: {video.likes}</Typography>
+            <Typography variant="body2">Comments: {video.comments}</Typography>
+            <Typography variant="body2">Views: {video.views}</Typography>
           </React.Fragment>
         )}
       </CardContent>
