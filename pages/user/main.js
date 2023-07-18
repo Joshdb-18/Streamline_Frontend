@@ -96,7 +96,7 @@ const Dashboard = () => {
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
+              marginLeft: "10rem",
               alignItems: "center",
             }}
           >
