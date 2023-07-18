@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import withAuth from "../../utils/withAuth";
-import ButtonOutline from "../../components/misc/ButtonOutline.";
+import Button from "@mui/material/Button";
 import Streamline from "../../public/assets/Logo.svg";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
