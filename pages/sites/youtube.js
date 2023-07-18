@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import withAuth from "../../utils/withAuth";
-// import Button from "@mui/material/Button";
 import Streamline from "../../public/assets/Logo.svg";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -158,7 +157,16 @@ function YoutubePage() {
           </div>
         </nav>
       </header>
-      <div role="presentation">
+      <div
+        role="presentation"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: "1rem",
+          marginBottom: "1rem",
+        }}
+      >
         <Breadcrumbs aria-label="breadcrumb">
           <Link
             underline="hover"
