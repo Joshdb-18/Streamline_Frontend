@@ -106,7 +106,7 @@ function YoutubePage() {
           </div>
         </nav>
       </header>
-      <div>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         {/* <h1>YouTube Videos</h1> */}
         {loading ? (
           <>
@@ -117,7 +117,7 @@ function YoutubePage() {
         ) : videos.length > 0 ? (
           videos.map((video) => <Media key={video.id} video={video} />)
         ) : (
-          <Typography variant="body1">No more videos found.</Typography>
+          <Typography variant="body1">No Videos found.</Typography>
         )}
       </div>
     </>
