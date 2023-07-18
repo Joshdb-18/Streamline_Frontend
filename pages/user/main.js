@@ -18,7 +18,7 @@ import Streamline from "../../public/assets/Logo.svg";
 
 const Dashboard = () => {
   const router = useRouter();
-  const [setYoutubeUrl] = useState("");
+  const [youtubeUrl, setYoutubeUrl] = useState("");
   const [showButtons, setShowButtons] = useState(false);
 
   const handleLogout = async () => {
