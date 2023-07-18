@@ -50,7 +50,7 @@ function Media(props) {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Typography variant="h3">{video.title}</Typography>
+            <Typography variant="h6">{video.title}</Typography>
             <Typography variant="body1">
               Description: {video.description}
             </Typography>
