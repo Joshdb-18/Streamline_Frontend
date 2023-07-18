@@ -1,6 +1,7 @@
 import { useState } from "react";
 import withAuth from "../../utils/withAuth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import axios from "axios";
 import * as React from "react";
 import Button from "@mui/material/Button";
@@ -16,8 +17,8 @@ import ButtonOutline from "../../components/misc/ButtonOutline.";
 import Streamline from "../../public/assets/Logo.svg";
 
 const Dashboard = () => {
-  const [youtubeUrl, setYoutubeUrl] = useState("");
-  const [youtubeConnected, setYoutubeConnected] = useState(false);
+  const router = useRouter();
+  const [setYoutubeUrl] = useState("");
   const [showButtons, setShowButtons] = useState(false);
 
   const handleLogout = async () => {
