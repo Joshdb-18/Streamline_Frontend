@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import withAuth from "../../utils/withAuth";
-import ButtonOutline from "../../components/misc/ButtonOutline.";
+import Button from "@mui/material/Button";
 import Streamline from "../../public/assets/Logo.svg";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -134,7 +134,12 @@ function YoutubePage() {
             <Streamline className="h-8 w-auto" />
           </div>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <ButtonOutline onClick={handleLogout}>Logout</ButtonOutline>
+            <Button
+              className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-orange-500 text-orange-500 bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-orange-500 hover:text-white-500 transition-all hover:shadow-orange "
+              onClick={handleLogout}
+            >
+              Logout
+            </Button>
           </div>
         </nav>
       </header>
