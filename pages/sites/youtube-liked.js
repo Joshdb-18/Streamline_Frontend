@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import withAuth from "../../utils/withAuth";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import Streamline from "../../public/assets/Logo.svg";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Skeleton from "@mui/material/Skeleton";
 import Typography from "@mui/material/Typography";
+import HomeIcon from "@mui/icons-material/Home";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import GrainIcon from "@mui/icons-material/Grain";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Link from "@mui/material/Link";
 
 function Media(props) {
   const { loading = false, video } = props;
@@ -142,15 +147,46 @@ function YoutubePage() {
             <Streamline className="h-8 w-auto" />
           </div>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <Button
+            <button
               className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-orange-500 text-orange-500 bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-orange-500 hover:text-white-500 transition-all hover:shadow-orange "
               onClick={handleLogout}
             >
               Logout
-            </Button>
+            </button>
           </div>
         </nav>
       </header>
+      <div role="presentation">
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link
+            underline="hover"
+            sx={{ display: "flex", alignItems: "center" }}
+            color="inherit"
+            href="/user/main"
+          >
+            <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            Home
+          </Link>
+          <Link
+            underline="hover"
+            sx={{ display: "flex", alignItems: "center" }}
+            color="inherit"
+            href="/sites/youtube"
+          >
+            <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            My Videos
+          </Link>
+          <Link
+            underline="hover"
+            sx={{ display: "flex", alignItems: "center" }}
+            color="inherit"
+            href="/sites/youtube-liked"
+          >
+            <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            Liked Videos
+          </Link>
+        </Breadcrumbs>
+      </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {/* <h1>YouTube Videos</h1> */}
         {loading ? (
