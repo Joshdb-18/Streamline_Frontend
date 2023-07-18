@@ -93,45 +93,53 @@ const Dashboard = () => {
           </IconButton>
         </Hidden>
         <Hidden mdDown implementation="css">
-          <Button onClick={handleAddYouTube}>
-            <Fab
-              variant="extended"
-              size="medium"
-              color="error"
-              aria-label="add"
-            >
-              <NavigationIcon sx={{ mr: 1 }} />
-              Connect YouTube
-            </Fab>
-          </Button>
-          <Button href="/coming-soon">
-            <Fab variant="extended" size="medium" color="" aria-label="add">
-              <NavigationIcon sx={{ mr: 1 }} />
-              Connect TikTok
-            </Fab>
-          </Button>
-          <Button href="/coming-soon">
-            <Fab
-              variant="extended"
-              size="medium"
-              color="primary"
-              aria-label="add"
-            >
-              <NavigationIcon sx={{ mr: 1 }} />
-              Connect Facebook
-            </Fab>
-          </Button>
-          <Button href="/coming-soon">
-            <Fab
-              variant="extended"
-              size="medium"
-              color="secondary"
-              aria-label="add"
-            >
-              <NavigationIcon sx={{ mr: 1 }} />
-              Connect Instagram
-            </Fab>
-          </Button>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Button onClick={handleAddYouTube}>
+              <Fab
+                variant="extended"
+                size="medium"
+                color="error"
+                aria-label="add"
+              >
+                <NavigationIcon sx={{ mr: 1 }} />
+                Connect YouTube
+              </Fab>
+            </Button>
+            <Button href="/coming-soon">
+              <Fab variant="extended" size="medium" color="" aria-label="add">
+                <NavigationIcon sx={{ mr: 1 }} />
+                Connect TikTok
+              </Fab>
+            </Button>
+            <Button href="/coming-soon">
+              <Fab
+                variant="extended"
+                size="medium"
+                color="primary"
+                aria-label="add"
+              >
+                <NavigationIcon sx={{ mr: 1 }} />
+                Connect Facebook
+              </Fab>
+            </Button>
+            <Button href="/coming-soon">
+              <Fab
+                variant="extended"
+                size="medium"
+                color="secondary"
+                aria-label="add"
+              >
+                <NavigationIcon sx={{ mr: 1 }} />
+                Connect Instagram
+              </Fab>
+            </Button>
+          </div>
         </Hidden>
         {showButtons && (
           <>
@@ -149,13 +157,13 @@ const Dashboard = () => {
                   color="error"
                   aria-label="add"
                 >
-                  <NavigationIcon sx={{ mr: 1 }} />
+                  <NavigationIcon sx={{ mr: 2 }} />
                   Connect YouTube
                 </Fab>
               </Button>
               <Button href="/coming-soon">
                 <Fab variant="extended" size="medium" color="" aria-label="add">
-                  <NavigationIcon sx={{ mr: 1 }} />
+                  <NavigationIcon sx={{ mr: 2 }} />
                   Connect TikTok
                 </Fab>
               </Button>
@@ -166,7 +174,7 @@ const Dashboard = () => {
                   color="primary"
                   aria-label="add"
                 >
-                  <NavigationIcon sx={{ mr: 1 }} />
+                  <NavigationIcon sx={{ mr: 2 }} />
                   Connect Facebook
                 </Fab>
               </Button>
@@ -177,7 +185,7 @@ const Dashboard = () => {
                   color="secondary"
                   aria-label="add"
                 >
-                  <NavigationIcon sx={{ mr: 1 }} />
+                  <NavigationIcon sx={{ mr: 2 }} />
                   Connect Instagram
                 </Fab>
               </Button>
