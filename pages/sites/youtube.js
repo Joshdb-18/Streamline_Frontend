@@ -11,6 +11,11 @@ import Typography from "@mui/material/Typography";
 
 function Media(props) {
   const { loading = false, video } = props;
+  const [showDescription, setShowDescription] = useState(false);
+
+  const toggleDescription = () => {
+    setShowDescription((prevShowDescription) => !prevShowDescription);
+  };
 
   return (
     <Card sx={{ maxWidth: 345, m: 2 }}>
@@ -51,9 +56,14 @@ function Media(props) {
         ) : (
           <React.Fragment>
             <Typography variant="h6">{video.title}</Typography>
-            <Typography variant="body1">
-              Description: {video.description}
+            <Typography variant="body2" color="text.secondary" component="p">
+              {showDescription
+                ? video.description
+                : `${video.description.slice(0, 100)}...`}
             </Typography>
+            <button onClick={toggleDescription}>
+              {showDescription ? "Hide Description" : "Show Description"}
+            </button>
             <Typography variant="body2">Likes: {video.like_count}</Typography>
             <Typography variant="body2">
               Comments: {video.comment_count}
