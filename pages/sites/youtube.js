@@ -69,6 +69,27 @@ function YoutubePage() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const handleLogout = async () => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Token ${token}`,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://backend.devnetwork.tech/api/v1/logout/",
+        null,
+        {
+          headers: headers,
+        }
+      );
+      localStorage.removeItem("token");
+      router.push("/");
+    } catch (error) {
+      console.error("An error occured", error);
+    }
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -111,7 +132,7 @@ function YoutubePage() {
             <Streamline className="h-8 w-auto" />
           </div>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <ButtonOutline>Logout</ButtonOutline>
+            <ButtonOutline onClick={handleLogout}>Logout</ButtonOutline>
           </div>
         </nav>
       </header>

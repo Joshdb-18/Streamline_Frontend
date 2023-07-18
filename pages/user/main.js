@@ -29,6 +29,7 @@ const Dashboard = () => {
     try {
       const response = await axios.post(
         "https://backend.devnetwork.tech/api/v1/logout/",
+        null,
         {
           headers: headers,
         }
