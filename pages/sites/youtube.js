@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 import withAuth from "../../utils/withAuth";
 import ButtonOutline from "../../components/misc/ButtonOutline.";
 import Streamline from "../../public/assets/Logo.svg";
@@ -66,6 +67,7 @@ function Media(props) {
 }
 
 function YoutubePage() {
+  const router = useRouter();
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
 
