@@ -8,6 +8,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Skeleton from "@mui/material/Skeleton";
 import Typography from "@mui/material/Typography";
+import HomeIcon from "@mui/icons-material/Home";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import GrainIcon from "@mui/icons-material/Grain";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Link from "@mui/material/Link";
 
 function Media(props) {
   const { loading = false, video } = props;
@@ -62,9 +67,7 @@ function Media(props) {
                 : `${video.description.slice(0, 100)}...`}
             </Typography>
             <button onClick={toggleDescription}>
-              {showDescription
-                ? "Hide Description"
-                : "Show remaining Description"}
+              {showDescription ? "Hide Description" : "See more"}
             </button>
             <Typography variant="body2">Likes: {video.like_count}</Typography>
             <Typography variant="body2">
@@ -155,8 +158,47 @@ function YoutubePage() {
           </div>
         </nav>
       </header>
+      <div role="presentation">
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link
+            underline="hover"
+            sx={{ display: "flex", alignItems: "center" }}
+            color="inherit"
+            href="/user/main"
+          >
+            <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            Home
+          </Link>
+          <Link
+            underline="hover"
+            sx={{ display: "flex", alignItems: "center" }}
+            color="inherit"
+            href="/sites/youtube"
+          >
+            <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            My Videos
+          </Link>
+          <Link
+            underline="hover"
+            sx={{ display: "flex", alignItems: "center" }}
+            color="inherit"
+            href="/sites/youtube-liked"
+          >
+            <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            Liked Videos
+          </Link>
+          <Link
+            underline="hover"
+            sx={{ display: "flex", alignItems: "center" }}
+            color="inherit"
+            href="/sites/youtube-upload"
+          >
+            <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+            Upload
+          </Link>
+        </Breadcrumbs>
+      </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {/* <h1>YouTube Videos</h1> */}
         {loading ? (
           <>
             <Media loading />
