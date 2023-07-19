@@ -16,7 +16,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-const options = [{ label: "Upload Video", link: "/upload-vid" }];
+const options = [{ label: "Upload Video", link: "/sites/youtube-upload" }];
 
 const ITEM_HEIGHT = 48;
 
