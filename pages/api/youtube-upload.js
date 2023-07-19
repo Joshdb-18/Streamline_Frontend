@@ -9,9 +9,8 @@ export default async function handler(req, res) {
     const videoPrivacyStatus = req.body.privacy_status;
     const videoFile = req.files.video;
     const videoCategory = req.body.category;
-    const videoMadeForKids = req.body.made_for_kids === "true"; // Convert to boolean
+    const videoMadeForKids = req.body.made_for_kids === "true";
 
-    // You may need to adjust the URL based on your backend API endpoint
     const apiUrl = "https://backend.devnetwork.tech/api/v1/youtube/upload/";
 
     const formData = new FormData();
