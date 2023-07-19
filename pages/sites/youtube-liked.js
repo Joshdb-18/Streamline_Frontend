@@ -9,9 +9,16 @@ import Skeleton from "@mui/material/Skeleton";
 import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
-import GrainIcon from "@mui/icons-material/Grain";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+
+const options = [{ label: "Upload Video", link: "/upload-vid" }];
+
+const ITEM_HEIGHT = 48;
 
 function Media(props) {
   const { loading = false, video } = props;
@@ -82,6 +89,14 @@ function YoutubePage() {
   const router = useRouter();
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
@@ -193,6 +208,47 @@ function YoutubePage() {
             <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
             Liked Videos
           </Link>
+          <IconButton
+            aria-label="more"
+            id="long-button"
+            aria-controls={open ? "long-menu" : undefined}
+            aria-expanded={open ? "true" : undefined}
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            <MoreVertIcon />
+          </IconButton>
+          <Menu
+            id="long-menu"
+            MenuListProps={{
+              "aria-labelledby": "long-button",
+            }}
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            PaperProps={{
+              style: {
+                maxHeight: ITEM_HEIGHT * 4.5,
+                width: "20ch",
+              },
+            }}
+          >
+            {options.map((option) => (
+              <Link
+                key={option.label}
+                underline="none"
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginLeft: "2rem",
+                }}
+                color="inherit"
+                href={option.link}
+              >
+                {option.label}
+              </Link>
+            ))}
+          </Menu>
         </Breadcrumbs>
       </div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
@@ -206,7 +262,9 @@ function YoutubePage() {
         ) : videos.length > 0 ? (
           videos.map((video) => <Media key={video.id} video={video} />)
         ) : (
-          <Typography variant="body1">No Videos found.</Typography>
+          <Typography variant="body1" style={{ margin: "2rem 0" }}>
+            No Videos found.
+          </Typography>
         )}
       </div>
     </>
