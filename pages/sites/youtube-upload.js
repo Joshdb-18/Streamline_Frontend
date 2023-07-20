@@ -48,32 +48,8 @@ const YoutubeUploadPage = () => {
   const [videoCategory, setVideoCategory] = useState("");
   const [videoMadeForKids, setVideoMadeForKids] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const [credentials, setCredentials] = useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const headers = {
-      Authorization: `Token ${token}`,
-    };
-    // Fetch the credentials from the backend when the component mounts
-    const fetchCredentials = async () => {
-      try {
-        const response = await axios.get(
-          "https://backend.devnetwork.tech/api/v1/youtube-credentials/",
-          {
-            headers: headers,
-          }
-        );
-        const credentials = response.data.credentials;
-        setCredentials(credentials);
-      } catch (error) {
-        console.error("Failed to fetch YouTube credentials:", error.message);
-      }
-    };
-    fetchCredentials();
-  }, []);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -104,14 +80,14 @@ const YoutubeUploadPage = () => {
   };
 
   const handleUpload = async () => {
+    const token = localStorage.getItem("token");
     // Check if all required fields are filled
     if (
       !videoTitle ||
       !videoDescription ||
       !videoPrivacyStatus ||
       !videoFile ||
-      !videoCategory ||
-      !credentials
+      !videoCategory
     ) {
       return;
     }
@@ -128,11 +104,11 @@ const YoutubeUploadPage = () => {
       formData.append("category", videoCategory);
       formData.append("made_for_kids", videoMadeForKids);
 
-      // Send the POST request to YouTube using the credentials fetched from the backend
-      await fetch("https://www.googleapis.com/upload/youtube/v3/videos", {
+      // Send the POST request to the backend
+      await fetch("https://backend.devnetwork.tech/api/v1/youtube/upload/", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${credentials.token}`,
+          Authorization: `Token ${token}`,
         },
         body: formData,
       });
