@@ -52,24 +52,22 @@ const YoutubeUploadPage = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  useEffect(() => {
-    // Fetch credentials from the backend when the component mounts
-    const fetchCredentials = async () => {
+  const fetchYoutubeCredentials = async () => {
+    try {
       const token = localStorage.getItem("token");
-      try {
-        const response = await axios.get("../api/youtube-credentials", {
-          headers: {
-            Authorization: `Token ${token}`,
-          },
-        });
-        setCredentials(response.data.credentials);
-      } catch (error) {
-        console.error("Failed to fetch YouTube credentials:", error);
-      }
-    };
+      const response = await axios.post(
+        "../api/youtube-credentials", // Replace with your correct API endpoint
+        { token }
+      );
+      const credentials = response.data.credentials;
+      setCredentials(credentials);
+      return credentials;
+    } catch (error) {
+      console.error("Failed to fetch YouTube credentials:", error.message);
+      return null;
+    }
+  };
 
-    fetchCredentials();
-  }, []);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -110,6 +108,13 @@ const YoutubeUploadPage = () => {
     ) {
       return;
     }
+    const credentials = await fetchYoutubeCredentials();
+
+    if (!credentials) {
+      // If credentials fetching failed, return and show an error message
+      console.error("Failed to fetch YouTube credentials.");
+      return;
+    }
 
     // Set the uploading state to true
     setUploading(true);
@@ -127,7 +132,7 @@ const YoutubeUploadPage = () => {
       await fetch("https://www.googleapis.com/upload/youtube/v3/videos", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${credentials.access_token}`,
+          Authorization: `Bearer ${credentials.token}`,
         },
         body: formData,
       });
