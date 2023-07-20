@@ -52,21 +52,28 @@ const YoutubeUploadPage = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const fetchYoutubeCredentials = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await axios.post(
-        "../api/youtube-credentials", // Replace with your correct API endpoint
-        { token }
-      );
-      const credentials = response.data.credentials;
-      setCredentials(credentials);
-      return credentials;
-    } catch (error) {
-      console.error("Failed to fetch YouTube credentials:", error.message);
-      return null;
-    }
-  };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      Authorization: `Token ${token}`,
+    };
+    // Fetch the credentials from the backend when the component mounts
+    const fetchCredentials = async () => {
+      try {
+        const response = await axios.get(
+          "https://backend.devnetwork.tech/api/v1/youtube-credentials/",
+          {
+            headers: headers,
+          }
+        );
+        const credentials = response.data.credentials;
+        setCredentials(credentials);
+      } catch (error) {
+        console.error("Failed to fetch YouTube credentials:", error.message);
+      }
+    };
+    fetchCredentials();
+  }, []);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -106,13 +113,6 @@ const YoutubeUploadPage = () => {
       !videoCategory ||
       !credentials
     ) {
-      return;
-    }
-    const credentials = await fetchYoutubeCredentials();
-
-    if (!credentials) {
-      // If credentials fetching failed, return and show an error message
-      console.error("Failed to fetch YouTube credentials.");
       return;
     }
 
