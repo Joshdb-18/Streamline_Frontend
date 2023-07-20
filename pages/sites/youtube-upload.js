@@ -111,18 +111,16 @@ const YoutubeUploadPage = () => {
         },
       });
 
-      // Handle the response from the backend
-      // (In this example, we assume the backend returns the processed video response)
       if (response.data.success) {
-        // Video upload successful, navigate to a success page or perform any other desired action
-        router.push("/site/youtube");
+        // Video upload successful
+        router.push("/sites/youtube");
       } else {
         // Video upload failed, display an error message or handle the error accordingly
         console.error("Video upload failed:", response.data.error);
       }
     } catch (error) {
       // Handle any error that occurs during the video upload
-      console.error("An error occurred during video upload:", error);
+      console.error("An error occurred during Video upload:", error);
     } finally {
       // Set the uploading state back to false
       setUploading(false);
