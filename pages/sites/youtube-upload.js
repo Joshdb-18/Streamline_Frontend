@@ -49,6 +49,7 @@ const YoutubeUploadPage = () => {
   const [videoMadeForKids, setVideoMadeForKids] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -114,7 +115,9 @@ const YoutubeUploadPage = () => {
       });
 
       // Video upload successful
-      router.push("/sites/youtube");
+      setSuccessMessage(
+        "Video uploaded successfully, it may take YouTube a minute to process your video. Please wait while we redirect you to the main page"
+      );
     } catch (error) {
       // Handle any error that occurs during the video upload
       console.error("Video upload failed due to this error:", error);
@@ -123,6 +126,18 @@ const YoutubeUploadPage = () => {
       setUploading(false);
     }
   };
+  // Redirect to /sites/youtube page after 2 seconds when successMessage is set
+  useEffect(() => {
+    let redirectTimeout;
+
+    if (successMessage) {
+      redirectTimeout = setTimeout(() => {
+        router.push("/sites/youtube");
+      }, 2000);
+    }
+
+    return () => clearTimeout(redirectTimeout);
+  }, [successMessage, router]);
 
   return (
     <>
@@ -342,6 +357,9 @@ const YoutubeUploadPage = () => {
             >
               {uploading ? "Uploading Video..." : "Upload Video"}
             </Button>
+            <span style={{ marginLeft: "8px", marginTop: "8px" }}>
+              {successMessage && <p>{successMessage}</p>}
+            </span>
           </form>
         </Box>
       </Box>
