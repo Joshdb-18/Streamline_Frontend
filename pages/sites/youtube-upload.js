@@ -120,7 +120,7 @@ const YoutubeUploadPage = () => {
       }
     } catch (error) {
       // Handle any error that occurs during the video upload
-      console.error("An error occurred during Video upload:", error);
+      console.error("Video upload failed due to this error:", error);
     } finally {
       // Set the uploading state back to false
       setUploading(false);
