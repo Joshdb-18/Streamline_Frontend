@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
@@ -48,8 +48,28 @@ const YoutubeUploadPage = () => {
   const [videoCategory, setVideoCategory] = useState("");
   const [videoMadeForKids, setVideoMadeForKids] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [credentials, setCredentials] = useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
+  useEffect(() => {
+    // Fetch credentials from the backend when the component mounts
+    const fetchCredentials = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get("../api/youtube-credentials", {
+          headers: {
+            Authorization: `Token ${token}`,
+          },
+        });
+        setCredentials(response.data.credentials);
+      } catch (error) {
+        console.error("Failed to fetch YouTube credentials:", error);
+      }
+    };
+
+    fetchCredentials();
+  }, []);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -79,14 +99,14 @@ const YoutubeUploadPage = () => {
   };
 
   const handleUpload = async () => {
-    const token = localStorage.getItem("token");
     // Check if all required fields are filled
     if (
       !videoTitle ||
       !videoDescription ||
       !videoPrivacyStatus ||
       !videoFile ||
-      !videoCategory
+      !videoCategory ||
+      !credentials
     ) {
       return;
     }
@@ -103,21 +123,17 @@ const YoutubeUploadPage = () => {
       formData.append("category", videoCategory);
       formData.append("made_for_kids", videoMadeForKids);
 
-      // Send the POST request to the backend
-      const response = await axios.post("/api/youtube-upload", formData, {
+      // Send the POST request to YouTube using the credentials fetched from the backend
+      await fetch("https://www.googleapis.com/upload/youtube/v3/videos", {
+        method: "POST",
         headers: {
-          Authorization: `Token ${token}`,
-          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${credentials.access_token}`,
         },
+        body: formData,
       });
 
-      if (response.data.success) {
-        // Video upload successful
-        router.push("/sites/youtube");
-      } else {
-        // Video upload failed, display an error message or handle the error accordingly
-        console.error("Video upload failed:", response.data.error);
-      }
+      // Video upload successful
+      router.push("/sites/youtube");
     } catch (error) {
       // Handle any error that occurs during the video upload
       console.error("Video upload failed due to this error:", error);
