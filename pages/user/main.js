@@ -13,7 +13,6 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import ButtonOutline from "../../components/misc/ButtonOutline.";
 import Streamline from "../../public/assets/Logo.svg";
 
 const Dashboard = () => {
@@ -72,12 +71,12 @@ const Dashboard = () => {
             <Streamline className="h-8 w-auto" />
           </div>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center">
-            <Button
+            <button
               className="font-medium tracking-wide py-2 px-5 sm:px-8 border border-orange-500 text-orange-500 bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-orange-500 hover:text-white-500 transition-all hover:shadow-orange"
               onClick={handleLogout}
             >
               Logout
-            </Button>
+            </button>
           </div>
         </nav>
       </header>
